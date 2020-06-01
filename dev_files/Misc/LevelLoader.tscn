@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Misc/LevelLoader.cs" type="Script" id=1]
+[ext_resource path="res://World/World.tscn" type="PackedScene" id=2]
+
+[node name="LevelLoader" type="Node2D"]
+script = ExtResource( 1 )
+StartScene = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Curtain" type="CanvasLayer" parent="."]
+
+[node name="CurtainRect" type="ColorRect" parent="Curtain"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
