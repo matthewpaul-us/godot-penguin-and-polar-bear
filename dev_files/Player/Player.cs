@@ -22,8 +22,27 @@ public class Player : KinematicBody2D
 		_penguinSprite = GetNode<Sprite>("PenguinSprite");
 		_weaponSlot = GetNode<Position2D>("PenguinSprite/WeaponSlot");
 
-		BearController = new ActionController();
-		PenguinController = new MouseController();
+		BearController = new ActionController()
+		{
+			Left = "player1_left",
+			Right = "player1_right",
+			Up = "player1_up",
+			Down = "player1_down",
+			Fire = "player1_fire",
+		};
+
+		var compositeController = new CompositeController();
+		compositeController.Controllers.Add(new ActionController()
+		{
+			Left = "player2_left",
+			Right = "player2_right",
+			Up = "player2_up",
+			Down = "player2_down",
+			Fire = "player2_fire",
+		});
+		compositeController.Controllers.Add(new MouseController());
+
+		PenguinController = compositeController;
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -33,6 +52,16 @@ public class Player : KinematicBody2D
 		HandlePenguin();
 
 		ApplyVelocity(delta);
+
+		HandleDebug();
+	}
+
+	private void HandleDebug()
+	{
+		if (Input.IsActionJustPressed("debug_swap_controllers"))
+		{
+			SwapControllers();
+		}
 	}
 
 	private void ApplyVelocity(float delta)
@@ -70,5 +99,12 @@ public class Player : KinematicBody2D
 		var actions = BearController.GetInput(this);
 
 		Velocity = actions.Direction.Normalized() * MoveSpeed;
+	}
+
+	public void SwapControllers()
+	{
+		var controller = BearController;
+		BearController = PenguinController;
+		PenguinController = controller;
 	}
 }
