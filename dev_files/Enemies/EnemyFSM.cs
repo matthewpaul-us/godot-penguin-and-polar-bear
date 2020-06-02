@@ -16,11 +16,27 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 				break;
 
 			case "surface":
-				GD.Print("Surfacing!");
+				_parent.Anim.PlayBackwards("submerge");
 				break;
 
-			case "attack":
-				_parent.Attack();
+			case "submerge":
+				_parent.Anim.Play("submerge");
+				break;
+
+			case "im_hit":
+				_parent.PlayDamageSound();
+				if (_parent.AttackCollider.IsConnected("body_entered",
+					this, nameof(OnAttackColliderBodyEntered)))
+				{
+					_parent.AttackCollider.Disconnect("body_entered",
+						this, nameof(OnAttackColliderBodyEntered));
+				}
+				break;
+
+			case "move_to_target":
+				_parent.AttackCollider.Connect("body_entered",
+					this, nameof(OnAttackColliderBodyEntered),
+					flags:(uint)ConnectFlags.Oneshot);
 				break;
 
 			default:
@@ -30,6 +46,14 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 
 	protected override void ExitState(string oldState, string newState)
 	{
+		switch (oldState)
+		{
+			case "attack":
+				_parent.Velocity *= -1f;
+				break;
+			default:
+				break;
+		}
 	}
 
 	protected override void Initialize()
@@ -47,9 +71,13 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 
 		var debug = Globals.DebugGUI;
 
+		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy Rotation", this, e => e._parent.Rotation.ToString());
 		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy State", this, e => e._state);
 		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy TimeToWander", this, e => e._timeToWander.ToString());
-		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Distance To Player", this, e => (e._parent.Position - e.Target.Position).Length().ToString());
+		if (Target != null)
+		{
+			debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Distance To Player", this, e => (e._parent.Position - e.Target.Position).Length().ToString());
+		}
 	}
 
 	protected override void ProcessState(float delta)
@@ -58,6 +86,12 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 		{
 			case "wander":
 				_timeToWander -= delta;
+				// Have to add delta here to keep enemy from wigging out. Not sure if I want
+				// to keep it here or push it back into the enemy code next to the velocity
+				// getting multiplied by delta
+				_parent.Rotation += _rand.Binomial() * _parent.RotateSpeed * delta;
+				_parent.Velocity = _parent.MoveSpeed * Vector2.Up.Rotated(_parent.Rotation);
+
 				break;
 
 			case "move_to_target":
@@ -84,7 +118,7 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 				return "move_to_target";
 				break;
 
-			case "move_to_player":
+			case "move_to_target":
 				if (_parent.IsCloseTo(Target.Position))
 				{
 					return "attack";
@@ -92,7 +126,15 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 				break;
 
 			case "attack":
+				return "submerge";
+				break;
+
+			case "submerge":
 				return "wander";
+				break;
+
+			case "im_hit":
+				return "submerge";
 				break;
 
 			default:
@@ -100,5 +142,11 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 		}
 
 		return _state;
+	}
+
+	public void OnAttackColliderBodyEntered(Node body)
+	{
+		_parent.Attack(body);
+		SetState("attack");
 	}
 }

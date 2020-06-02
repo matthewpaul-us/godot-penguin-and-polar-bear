@@ -23,6 +23,11 @@ config/icon="res://icon.png"
 
 Globals="*res://Misc/Globals.cs"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [input]
 
 player1_left={
@@ -94,6 +99,7 @@ debug_swap_controllers={
 2d_physics/layer_3="enemies"
 2d_physics/layer_4="projectiles_player"
 2d_physics/layer_5="projectiles_enemy"
+2d_physics/layer_6="enemies_submerged"
 
 [rendering]
 

@@ -45,6 +45,11 @@ public class Snowball : KinematicBody2D
 			_collider.Disabled = true;
 
 			KillProjectile();
+
+			if (collision.Collider is IDamageable damageable)
+			{
+				damageable.Damage();
+			}
 		}
 	}
 

@@ -41,4 +41,9 @@ using System.Threading.Tasks;
                 list[items] = value;
             }
         }
+
+    public float Binomial()
+    {
+        return (float)(NextDouble() - NextDouble());
     }
+}

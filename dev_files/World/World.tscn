@@ -7,8 +7,9 @@
 [node name="World" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 162.881, 166.205 )
-
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
 position = Vector2( 831.025, 384.488 )
+RotateSpeed = 0.785
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 162.881, 166.205 )
