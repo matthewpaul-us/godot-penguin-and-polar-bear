@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Menus/EndScreen/PostgameScreen.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/Sunrise International Demo.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Menus/EndScreen/EndScreen.cs" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 160
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 3
+font_data = ExtResource( 2 )
+
+[node name="EndScreen" type="CanvasLayer"]
+script = ExtResource( 3 )
+RestartScenePath = "res://World/World.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 714.0
+margin_top = 21.0
+margin_right = -47.0
+margin_bottom = -247.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="VBoxContainer"]
+margin_right = 679.0
+margin_bottom = 167.0
+custom_fonts/font = SubResource( 1 )
+text = "You showed"
+align = 1
+
+[node name="SuperlativeLabel" type="Label" parent="VBoxContainer"]
+margin_top = 171.0
+margin_right = 679.0
+margin_bottom = 338.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.541176, 0, 1 )
+text = "fantastic"
+align = 1
+uppercase = true
+
+[node name="Text3" type="Label" parent="VBoxContainer"]
+margin_top = 342.0
+margin_right = 679.0
+margin_bottom = 509.0
+custom_fonts/font = SubResource( 1 )
+text = "Teamwork"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 513.0
+margin_right = 679.0
+margin_bottom = 643.0
+custom_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 308.0
+margin_bottom = 130.0
+
+[node name="Text4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 308.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 2 )
+text = "Survived For"
+align = 1
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 67.0
+margin_right = 308.0
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 2 )
+text = "XX min XX sec"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 348.0
+margin_right = 656.0
+margin_bottom = 130.0
+
+[node name="Text4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 308.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 2 )
+text = "High Score"
+align = 1
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 67.0
+margin_right = 308.0
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 2 )
+text = "XX min XX sec"
+align = 1
+
+[node name="RestartButton" type="Button" parent="."]
+margin_left = 886.076
+margin_top = 706.751
+margin_right = 1186.08
+margin_bottom = 806.751
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="RestartButton" to="." method="OnRestartButtonPressed"]

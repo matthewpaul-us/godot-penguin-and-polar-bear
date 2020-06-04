@@ -12,7 +12,7 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 		switch (newState)
 		{
 			case "wander":
-				_timeToWander = (float)_rand.NextDouble() * 3f + 2f;
+				_timeToWander = (float)_rand.NextDouble() * _parent.AverageWaitTime + _parent.AverageWaitTime / 2;
 				break;
 
 			case "surface":
@@ -31,6 +31,7 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 					_parent.AttackCollider.Disconnect("body_entered",
 						this, nameof(OnAttackColliderBodyEntered));
 				}
+				_parent.Velocity = _parent.Velocity.Rotated(Mathf.Pi / 2 * _rand.Sign());
 				break;
 
 			case "move_to_target":
@@ -74,6 +75,7 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy Rotation", this, e => e._parent.Rotation.ToString());
 		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy State", this, e => e._state);
 		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy TimeToWander", this, e => e._timeToWander.ToString());
+		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy Animation", this, e => e._parent.Sprite.Animation.ToString());
 		if (Target != null)
 		{
 			debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Distance To Player", this, e => (e._parent.Position - e.Target.Position).Length().ToString());

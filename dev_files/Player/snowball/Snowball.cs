@@ -3,8 +3,9 @@ using System;
 
 public class Snowball : KinematicBody2D
 {
-	[Export] float StartingSpeed = 200f;
-	[Export] float TimeToLive = 3f;
+	[Export] public float StartingSpeed = 200f;
+	[Export] public float TimeToLive = 3f;
+	[Export] public AudioStream AttackSound;
 	/// <summary>
 	/// The absolute amount from 100% the sound pitch can range.
 	/// </summary>
@@ -15,6 +16,7 @@ public class Snowball : KinematicBody2D
 	private CollisionShape2D _collider;
 	private AudioStreamPlayer2D _hitSound;
 	private AugmentedRandom _rand;
+
 
 	public override void _Ready()
 	{

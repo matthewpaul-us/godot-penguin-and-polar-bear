@@ -4,7 +4,10 @@ using System;
 public class Player : KinematicBody2D, IDamageable
 {
 	[Signal] public delegate void Damaged();
+	[Signal] public delegate void HealthChanged();
 
+	[Export] public int Health;
+	[Export] public bool IsControllerSwitchingActive;
 	[Export] public PackedScene Weapon;
 	[Export] public float MaxMoveSpeed = 50;
 	[Export] public float MaxAcceleration = 75;
@@ -16,21 +19,25 @@ public class Player : KinematicBody2D, IDamageable
 
 	public Vector2 Velocity;
 
-	private Sprite _bearSprite;
+	private AnimatedSprite _bearSprite;
 	private Sprite _penguinSprite;
 	private Position2D _weaponSlot;
 	private DebugGUI _debug;
 	private AudioStreamPlayer2D _hurtSound;
+	private AudioStreamPlayer2D _penguinAttackSound;
 	private AugmentedRandom _rand;
+	private AnimationPlayer _bearAnim;
 
 	public override void _Ready()
 	{
-		_bearSprite = GetNode<Sprite>("BearSprite");
+		_bearSprite = GetNode<AnimatedSprite>("BearSprite");
 		_penguinSprite = GetNode<Sprite>("PenguinSprite");
 		_weaponSlot = GetNode<Position2D>("PenguinSprite/WeaponSlot");
 		_debug = Globals.DebugGUI;
 		_hurtSound = GetNode<AudioStreamPlayer2D>("HurtSound");
+		_penguinAttackSound = GetNode<AudioStreamPlayer2D>("PenguinAttackSound");
 		_rand = Globals.Random;
+		_bearAnim = GetNode<AnimationPlayer>("BearAnimationPlayer");
 
 		BearController = new ActionController()
 		{
@@ -55,6 +62,7 @@ public class Player : KinematicBody2D, IDamageable
 		PenguinController = compositeController;
 
 		_debug.AddToGui<Player>(DebugPane.TopLeft, "Velocity", this, p => p.Velocity.ToString());
+		_debug.AddToGui<Player>(DebugPane.TopLeft, "Health", this, p => p.Health.ToString());
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -81,6 +89,15 @@ public class Player : KinematicBody2D, IDamageable
 		MoveAndCollide(Velocity * delta);
 
 		Rotation = HandleRotation(delta);
+
+		if (Velocity.Length() > 10f)
+		{
+			_bearAnim.Play("swim");
+		}
+		else
+		{
+			_bearAnim.Play("idle");
+		}
 	}
 
 	private float HandleRotation(float delta)
@@ -107,9 +124,16 @@ public class Player : KinematicBody2D, IDamageable
 
 	public void FireWeapon()
 	{
-		var weapon = Weapon.Instance() as KinematicBody2D;
+		var weapon = Weapon.Instance() as Snowball;
 		weapon.Position = _weaponSlot.GlobalPosition;
 		weapon.Rotation = _weaponSlot.GlobalRotation;
+
+		if (weapon.AttackSound != null)
+		{
+			_penguinAttackSound.Stream = weapon.AttackSound;
+			_penguinAttackSound.PitchScale = _rand.Binomial() * 0.3f + 1;
+			_penguinAttackSound.Play();
+		}
 
 		GetParent().AddChild(weapon);
 	}
@@ -148,8 +172,21 @@ public class Player : KinematicBody2D, IDamageable
 
 	public void Damage()
 	{
+		GD.Print("I'm Hurt!");
 		_hurtSound.PitchScale = _rand.Binomial() * 0.5f + 1;
 		_hurtSound.Play();
 		EmitSignal(nameof(Damaged));
+		ChangeHealth(Health - 1);
+
+		if (IsControllerSwitchingActive)
+		{
+			SwapControllers();
+		}
+	}
+
+	public void ChangeHealth(int newHealth)
+	{
+		Health = newHealth;
+		EmitSignal(nameof(HealthChanged), newHealth);
 	}
 }

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Environment/Floaters/Floater.cs" type="Script" id=1]
+[ext_resource path="res://Environment/Floaters/Chunk2.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 195.288, 84.7881 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "wiggle"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("IceChunk11:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.9, 1.6, 2.2, 2.8, 3.4, 4.24, 4.98, 5.75, 6.46, 7.03, 7.55, 8.07 ),
+"transitions": PoolRealArray( 0.5, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, 1 ),
+"update": 0,
+"values": [ 0.0, 2.99509, -5.90529, 1.01845, -3.38411, 0.60255, -2.88068, 1.2, -1.0, 0.8, -0.6, 0.4, -0.2, 0.0 ]
+}
+
+[node name="Floater" type="KinematicBody2D"]
+z_index = 3
+collision_layer = 64
+collision_mask = 70
+script = ExtResource( 1 )
+Weight = 2.0
+VelocityDampingFactor = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3, -23 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = -0.00349066
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/wiggle = SubResource( 2 )

@@ -42,6 +42,11 @@ using System.Threading.Tasks;
             }
         }
 
+    public int Sign()
+    {
+        return NextDouble() > 0.5 ? 1 : -1;
+    }
+
     public float Binomial()
     {
         return (float)(NextDouble() - NextDouble());

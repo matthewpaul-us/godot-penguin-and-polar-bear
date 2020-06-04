@@ -11,7 +11,7 @@ class MouseController : IController
     {
         var set = new ActionSet();
 
-        set.Direction = parent.GetViewport().GetMousePosition() - parent.GlobalPosition;
+        set.Direction = parent.GetGlobalMousePosition() - parent.GlobalPosition;
         set.IsFirePressed = Input.IsActionJustPressed("player2_fire");
         return set;
     }

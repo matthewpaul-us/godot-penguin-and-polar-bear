@@ -6,11 +6,12 @@ public class Enemy : KinematicBody2D, IDamageable
 	[Export] public float CloseRange { get; set; } = 100;
 	[Export] public float MoveSpeed { get; set; } = 250f;
 	[Export] public float RotateSpeed { get; set; } = Mathf.Pi;
+	[Export] public float AverageWaitTime { get; set; } = 10f;
 
 	public Vector2 Velocity { get; set; }
 	public EnemyFSM Brain { get; set; }
 
-	private Sprite _sprite;
+	public AnimatedSprite Sprite;
 	public Area2D AttackCollider;
 	public AnimationPlayer Anim;
 	private AudioStreamPlayer2D _hitSound;
@@ -18,7 +19,7 @@ public class Enemy : KinematicBody2D, IDamageable
 	public override void _Ready()
 	{
 		Brain = GetNode<EnemyFSM>("Brain");
-		_sprite = GetNode<Sprite>("Sprite");
+		Sprite = GetNode<AnimatedSprite>("Sprite");
 		AttackCollider = GetNode<Area2D>("AttackCollider");
 		Anim = GetNode<AnimationPlayer>("AnimationPlayer");
 		_hitSound = GetNode<AudioStreamPlayer2D>("HitSound");

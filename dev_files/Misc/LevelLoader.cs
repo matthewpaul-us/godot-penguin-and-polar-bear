@@ -24,6 +24,8 @@ public class LevelLoader : Node2D
 		_tween = GetNode<Tween>("Tween");
 		_curtain = GetNode<ColorRect>("Curtain/CurtainRect");
 
+		_curtainOriginalColor = _curtain.Color;
+
 		LoadScene(StartScene);
 	}
 
@@ -32,7 +34,6 @@ public class LevelLoader : Node2D
 		if (LoadedScene != null)
 		{
 			await SetCurtainRaised(false);
-
 			RemoveChild(LoadedScene);
 			LoadedScene.CallDeferred("QueueFree");
 		}
@@ -71,6 +72,8 @@ public class LevelLoader : Node2D
 		{
 			fromColor = LoweredCurtainColor;
 			toColor = _curtainOriginalColor;
+			_curtain.MouseFilter = Control.MouseFilterEnum.Ignore;
+
 		}
 		else
 		{
@@ -78,6 +81,7 @@ public class LevelLoader : Node2D
 
 			fromColor = _curtainOriginalColor;
 			toColor = LoweredCurtainColor;
+			_curtain.MouseFilter = Control.MouseFilterEnum.Stop;
 		}
 
 		_tween.InterpolateProperty(_curtain, "color",

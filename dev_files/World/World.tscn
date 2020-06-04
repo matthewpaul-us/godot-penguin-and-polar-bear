@@ -1,15 +1,159 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/Shark/Hammerhead.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/World.cs" type="Script" id=3]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk02.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk04.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk03.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Environment/Floaters/Flotsam/LifeRing.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk01.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/WorldUI.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.476821, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 3 )
+LoseScene = "res://Menus/EndScreen/EndScreen.tscn"
 
-[node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 831.025, 384.488 )
-RotateSpeed = 0.785
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -2160.0
+margin_top = -1350.0
+margin_right = 2160.0
+margin_bottom = 1350.0
+rect_pivot_offset = Vector2( 2160, 1350 )
+color = Color( 0.419608, 0.792157, 0.886275, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 162.881, 166.205 )
+position = Vector2( -1138.74, -318.848 )
+z_index = 5
+IsControllerSwitchingActive = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Player"]
+show_behind_parent = true
+z_index = -5
+amount = 200
+lifetime = 2.0
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 800, 500 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.48
+scale_amount = 2.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Hammerhead" parent="Enemies" instance=ExtResource( 1 )]
+rotation = 2.34806
+
+[node name="Hammerhead2" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 917.821, -489.194 )
+rotation = 5.30992
+
+[node name="Hammerhead3" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( -1248.61, 698.849 )
+rotation = 6.3433
+
+[node name="Hammerhead4" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( -1686.55, -1094.86 )
+rotation = 3.57503
+
+[node name="Flotsam" type="Node" parent="."]
+
+[node name="LifeRing" parent="Flotsam" instance=ExtResource( 7 )]
+position = Vector2( -111.954, 456.585 )
+collision_layer = 1
+collision_mask = 1
+
+[node name="LifeRing2" parent="Flotsam" instance=ExtResource( 7 )]
+position = Vector2( 950.296, -195.674 )
+collision_layer = 1
+collision_mask = 1
+
+[node name="LifeRing3" parent="Flotsam" instance=ExtResource( 7 )]
+position = Vector2( -792.166, -997.02 )
+collision_layer = 1
+collision_mask = 1
+
+[node name="LifeRing4" parent="Flotsam" instance=ExtResource( 7 )]
+position = Vector2( -1248.75, 503.175 )
+collision_layer = 1
+collision_mask = 1
+
+[node name="IceChunk03" parent="Flotsam" instance=ExtResource( 6 )]
+position = Vector2( -1228.63, -1011.81 )
+
+[node name="IceChunk04" parent="Flotsam" instance=ExtResource( 6 )]
+position = Vector2( -614.316, -485.258 )
+
+[node name="IceChunk05" parent="Flotsam" instance=ExtResource( 6 )]
+position = Vector2( -1533.21, 376.849 )
+
+[node name="IceChunk06" parent="Flotsam" instance=ExtResource( 6 )]
+position = Vector2( -412.986, 991.165 )
+
+[node name="IceChunk07" parent="Flotsam" instance=ExtResource( 6 )]
+position = Vector2( 526.556, 196.168 )
+
+[node name="IceChunk08" parent="Flotsam" instance=ExtResource( 6 )]
+position = Vector2( 1084.09, 955.029 )
+
+[node name="IceChunk09" parent="Flotsam" instance=ExtResource( 6 )]
+position = Vector2( 1610.64, -5.16211 )
+
+[node name="IceChunk10" parent="Flotsam" instance=ExtResource( 6 )]
+position = Vector2( 1084.09, -980.84 )
+
+[node name="IceChunk01" parent="Flotsam" instance=ExtResource( 8 )]
+position = Vector2( 1084.09, -980.84 )
+
+[node name="IceChunk02" parent="Flotsam" instance=ExtResource( 8 )]
+position = Vector2( 1104.74, 340.713 )
+
+[node name="IceChunk11" parent="Flotsam" instance=ExtResource( 8 )]
+position = Vector2( 113.571, -454.284 )
+
+[node name="IceChunk12" parent="Flotsam" instance=ExtResource( 8 )]
+position = Vector2( -841.458, 247.792 )
+
+[node name="IceChunk13" parent="Flotsam" instance=ExtResource( 8 )]
+position = Vector2( 25.8113, 970.516 )
+
+[node name="IceChunk14" parent="Flotsam" instance=ExtResource( 4 )]
+position = Vector2( -1579.67, -185.843 )
+
+[node name="IceChunk15" parent="Flotsam" instance=ExtResource( 4 )]
+position = Vector2( 82.5969, -996.327 )
+
+[node name="IceChunk16" parent="Flotsam" instance=ExtResource( 4 )]
+position = Vector2( 1693.24, 918.893 )
+
+[node name="IceChunk17" parent="Flotsam" instance=ExtResource( 5 )]
+position = Vector2( -454.284, -51.6232 )
+
+[node name="IceChunk18" parent="Flotsam" instance=ExtResource( 5 )]
+position = Vector2( 557.53, 655.614 )
+
+[node name="IceChunk19" parent="Flotsam" instance=ExtResource( 5 )]
+position = Vector2( -490.42, -1058.27 )
+
+[node name="IceChunk20" parent="Flotsam" instance=ExtResource( 5 )]
+position = Vector2( -1682.92, -583.342 )
+
+[node name="IceChunk21" parent="Flotsam" instance=ExtResource( 5 )]
+position = Vector2( -1595.16, 1042.79 )
+
+[node name="WorldUI" parent="." instance=ExtResource( 9 )]
