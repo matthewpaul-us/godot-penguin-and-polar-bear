@@ -60,6 +60,9 @@
     <Compile Include="Enemies\Enemy.cs" />
     <Compile Include="Enemies\EnemyFSM.cs" />
     <Compile Include="Enemies\IDamageable.cs" />
+    <Compile Include="Enemies\Walrus\IceBall\IceBall.cs" />
+    <Compile Include="Enemies\Walrus\Walrus.cs" />
+    <Compile Include="Enemies\Walrus\WalrusFSM.cs" />
     <Compile Include="Environment\Floaters\Floater.cs" />
     <Compile Include="Environment\HomeBase\HomeBase.cs" />
     <Compile Include="Menus\EndScreen\EndScreen.cs" />

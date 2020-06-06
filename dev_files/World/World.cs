@@ -31,9 +31,17 @@ public class World : Node2D
 		_homeBase.Connect(nameof(HomeBase.PlayerEnteredHomeBase), _player, nameof(Player.OnHomeBaseEntered));
 
 
-		foreach (var enemy in GetTree().GetNodesInGroup("enemies").Cast<Enemy>())
+		foreach (var enemy in GetTree().GetNodesInGroup("enemies"))
 		{
-			enemy.Brain.Target = _player;
+			if (enemy is Enemy e)
+			{
+				e.Brain.Target = _player;
+			}
+			else if (enemy is Walrus w)
+			{
+				w.Brain.Target = _player;
+			}
+
 		}
 
 		foreach (var crate in GetTree().GetNodesInGroup("crates").Cast<Crate>())
