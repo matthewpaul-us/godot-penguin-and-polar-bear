@@ -1,0 +1,41 @@
+digraph shark {
+    node [shape=point,label=""]ENTRY;
+
+    node [shape=ellipse];
+
+    wander[label="wander"];
+    im_hit[label="I'm hit"];
+    surface[label="surface"];
+    submerge[label="submerge"];
+    move_to_target[label="move to target"];
+    attack[label="attack"];
+    snowballed[shape=rect,label="collide with snowball"];
+
+    subgraph cluster_obstacle_avoid {
+        see_obstacle[shape=rect,label="see obstacle"];
+        avoid_left[label="avoid left"];
+        avoid_right[label="avoid right"];
+        avoid[label="avoid"];
+        previous[shape=polygon,label="previous"];
+
+        labelloc="t";
+        label="Obstacle Avoidance";
+    }
+
+    ENTRY->wander[label="Init"];
+    surface->move_to_target;
+    attack->submerge;
+    submerge->wander[label="_timeToWander < 0 && haveTarget"];
+    im_hit->submerge;
+    move_to_target->attack[label="IsCloseTo Target"];
+    wander->surface;
+    snowballed->im_hit;
+    see_obstacle->avoid;
+    avoid->avoid_left[label="50%"];
+    avoid->avoid_right[label="50%"];
+    avoid_left->previous[label="right whisker clear"];
+    avoid_right->previous[label="left whisker clear"];
+
+    labelloc="t";
+    label="Shark FSM";
+}

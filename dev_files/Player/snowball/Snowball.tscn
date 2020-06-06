@@ -14,9 +14,10 @@ collision_layer = 8
 collision_mask = 4
 script = ExtResource( 2 )
 StartingSpeed = 900.0
+TimeToLive = 1.0
 AttackSound = ExtResource( 4 )
 
-[node name="snow_ball" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 

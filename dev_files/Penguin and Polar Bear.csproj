@@ -53,6 +53,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crate\Crate.cs" />
     <Compile Include="Debug\DebugField.cs" />
     <Compile Include="Debug\DebugGUI.cs" />
     <Compile Include="Debug\DebugMethod.cs" />
@@ -60,12 +61,14 @@
     <Compile Include="Enemies\EnemyFSM.cs" />
     <Compile Include="Enemies\IDamageable.cs" />
     <Compile Include="Environment\Floaters\Floater.cs" />
+    <Compile Include="Environment\HomeBase\HomeBase.cs" />
     <Compile Include="Menus\EndScreen\EndScreen.cs" />
     <Compile Include="Menus\MainMenu\MainMenu.cs" />
     <Compile Include="Misc\AbstractStateMachine.cs" />
     <Compile Include="Misc\AugmentedRandom.cs" />
     <Compile Include="Misc\Globals.cs" />
     <Compile Include="Misc\LevelLoader.cs" />
+    <Compile Include="Misc\ScreenShake.cs" />
     <Compile Include="Player\ActionController.cs" />
     <Compile Include="Player\ActionSet.cs" />
     <Compile Include="Player\CompositeController.cs" />

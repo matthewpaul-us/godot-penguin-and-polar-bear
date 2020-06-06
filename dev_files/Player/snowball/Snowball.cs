@@ -16,6 +16,7 @@ public class Snowball : KinematicBody2D
 	private CollisionShape2D _collider;
 	private AudioStreamPlayer2D _hitSound;
 	private AugmentedRandom _rand;
+	private Sprite _sprite;
 
 
 	public override void _Ready()
@@ -23,6 +24,7 @@ public class Snowball : KinematicBody2D
 		_lifespanTimer = GetNode<Timer>("LifespanTimer");
 		_collider = GetNode<CollisionShape2D>("CollisionShape2D");
 		_hitSound = GetNode<AudioStreamPlayer2D>("HitSound");
+		_sprite = GetNode<Sprite>("Sprite");
 		_rand = Globals.Random;
 
 		// Rotate the up vector by the objects rotation to get the
@@ -34,6 +36,9 @@ public class Snowball : KinematicBody2D
 
 	public override void _PhysicsProcess(float delta)
 	{
+		float scale = Mathf.Lerp(0, 1, _lifespanTimer.TimeLeft / _lifespanTimer.WaitTime);
+		_sprite.Scale = new Vector2(scale, scale);
+
 		KinematicCollision2D collision = MoveAndCollide(Velocity * delta);
 
 		if (collision != null)

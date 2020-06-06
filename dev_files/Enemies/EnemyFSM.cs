@@ -35,9 +35,21 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 				break;
 
 			case "move_to_target":
-				_parent.AttackCollider.Connect("body_entered",
-					this, nameof(OnAttackColliderBodyEntered),
-					flags:(uint)ConnectFlags.Oneshot);
+				if (!_parent.AttackCollider.IsConnected("body_entered",
+					this, nameof(OnAttackColliderBodyEntered)))
+				{
+					_parent.AttackCollider.Connect("body_entered",
+						this, nameof(OnAttackColliderBodyEntered),
+						flags: (uint)ConnectFlags.Oneshot);
+				}
+				break;
+
+			case "avoid_left":
+				_parent.Velocity = _parent.Velocity.Rotated(Mathf.Pi / 2 * -1);
+				break;
+
+			case "avoid_right":
+				_parent.Velocity = _parent.Velocity.Rotated(Mathf.Pi / 2 * 1);
 				break;
 
 			default:
@@ -67,15 +79,16 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 		AddState("attack");
 		AddState("im_hit");
 		AddState("submerge");
+		AddState("avoid");
+		AddState("avoid_left");
+		AddState("avoid_right");
 
 		InitialState = "wander";
 
 		var debug = Globals.DebugGUI;
 
-		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy Rotation", this, e => e._parent.Rotation.ToString());
 		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy State", this, e => e._state);
-		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy TimeToWander", this, e => e._timeToWander.ToString());
-		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy Animation", this, e => e._parent.Sprite.Animation.ToString());
+		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy Whiskers", this, e => e._parent.GetCollidingWhiskers().ToString());
 		if (Target != null)
 		{
 			debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Distance To Player", this, e => (e._parent.Position - e.Target.Position).Length().ToString());
@@ -107,6 +120,15 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 
 	protected override string ProcessTransition(float delta)
 	{
+		// In any non-avoid state, check for obstacle avoidance
+		// If we see either whisker have issues
+		if (_state != null && !_state.StartsWith("avoid") &&
+			(_parent.IsWhiskerColliding(Enemy.Whisker.FrontLeft)
+				|| _parent.IsWhiskerColliding(Enemy.Whisker.FrontRight)))
+		{
+			return "avoid_left";
+		}
+
 		switch (_state)
 		{
 			case "wander":
@@ -137,6 +159,20 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 
 			case "im_hit":
 				return "submerge";
+				break;
+
+			case "avoid_left":
+				if (!_parent.IsWhiskerColliding(Enemy.Whisker.Right))
+				{
+					return _previousState;
+				}
+				break;
+
+			case "avoid_right":
+				if (!_parent.IsWhiskerColliding(Enemy.Whisker.Left))
+				{
+					return _previousState;
+				}
 				break;
 
 			default:

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Potion_Grab_01.wav-584445722113575bb2039d4dd068493c.sample"
+
+[deps]
+
+source_file="res://Menus/MainMenu/Potion_Grab_01.wav"
+dest_files=[ "res://.import/Potion_Grab_01.wav-584445722113575bb2039d4dd068493c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

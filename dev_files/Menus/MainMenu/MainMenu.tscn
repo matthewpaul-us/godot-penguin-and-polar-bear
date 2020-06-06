@@ -1,13 +1,220 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Menus/MainMenu/StartScreen.png" type="Texture" id=1]
 [ext_resource path="res://Menus/MainMenu/MainMenu.cs" type="Script" id=2]
+[ext_resource path="res://Menus/MainMenu/Art/GreyBorder.png" type="Texture" id=3]
+[ext_resource path="res://Menus/MainMenu/Art/Gamepad.png" type="Texture" id=4]
+[ext_resource path="res://Menus/MainMenu/Art/Empty.png" type="Texture" id=5]
+[ext_resource path="res://Menus/MainMenu/Art/Selected.png" type="Texture" id=6]
+[ext_resource path="res://Menus/MainMenu/Art/KeyboardMouse.png" type="Texture" id=7]
+[ext_resource path="res://Menus/MainMenu/Art/Recommended.png" type="Texture" id=8]
+[ext_resource path="res://Menus/MainMenu/Art/RTorSpace.png" type="Texture" id=9]
+[ext_resource path="res://Menus/MainMenu/Art/Confirm.png" type="Texture" id=10]
+[ext_resource path="res://Menus/MainMenu/Art/Select.png" type="Texture" id=11]
+[ext_resource path="res://Menus/MainMenu/Art/WhiteBorder.png" type="Texture" id=13]
+[ext_resource path="res://Menus/MainMenu/Potion_Grab_01.wav" type="AudioStream" id=14]
+[ext_resource path="res://Menus/MainMenu/MagicClick.wav" type="AudioStream" id=15]
+
+[sub_resource type="Animation" id=1]
+resource_name = "select_gamepad"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("GamePadTile:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GamePadTile:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.498039 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GamePadTile/TileBorder:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 13 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GamePadTile/TileBorder/SelectedTexture:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SelectPrompt:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("confirmPrompt:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("UISound")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.884323,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+} ],
+"times": PoolRealArray( 0, 0.001 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "select_keyboard"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("KeyboardTile:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("KeyboardTile:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.498039 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("KeyboardTile/TileBorder:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 13 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("KeyboardTile/TileBorder/SelectedTexture:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("confirmPrompt:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SelectPrompt:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("UISound")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.313792,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 2 )
 PlayScene = "res://World/World.tscn"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reference" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
@@ -16,16 +223,180 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="TextureRect"]
-anchor_left = 0.487
-anchor_top = 0.69
-anchor_right = 0.487
-anchor_bottom = 0.69
-margin_left = -86.28
-margin_top = -61.0001
-margin_right = 86.72
-margin_bottom = 60.9999
+[node name="GamePadTile" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0.498039 )
+anchor_left = 0.259
+anchor_top = 0.268
+anchor_right = 0.259
+anchor_bottom = 0.268
+margin_left = -293.96
+margin_top = -190.2
+margin_right = 303.04
+margin_bottom = 190.8
+rect_pivot_offset = Vector2( 298, 190 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="TextureRect/TextureButton" to="." method="OnPlayButtonPressed"]
+
+[node name="TileBorder" type="TextureRect" parent="GamePadTile"]
+anchor_top = 0.068
+anchor_right = 1.02
+anchor_bottom = 1.0
+margin_top = -6.908
+margin_right = -24.9401
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileCard" type="TextureRect" parent="GamePadTile/TileBorder"]
+anchor_left = 0.489
+anchor_top = 0.5
+anchor_right = 0.489
+anchor_bottom = 0.5
+margin_left = -235.715
+margin_top = -126.706
+margin_right = 236.285
+margin_bottom = 132.294
+texture = ExtResource( 4 )
+
+[node name="SelectedTexture" type="TextureRect" parent="GamePadTile/TileBorder"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.48
+anchor_top = 0.905
+anchor_right = 0.48
+anchor_bottom = 0.905
+margin_left = -47.32
+margin_top = -13.61
+margin_right = 47.68
+margin_bottom = 13.39
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="GamePadTile"]
+margin_left = 486.132
+margin_top = 3.4295
+margin_right = 577.132
+margin_bottom = 20.4295
+texture = ExtResource( 8 )
+
+[node name="KeyboardTile" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0.498039 )
+anchor_left = 0.259
+anchor_top = 0.268
+anchor_right = 0.259
+anchor_bottom = 0.268
+margin_left = 382.04
+margin_top = -190.2
+margin_right = 1004.04
+margin_bottom = 190.8
+rect_pivot_offset = Vector2( 311, 190 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileBorder" type="TextureRect" parent="KeyboardTile"]
+anchor_top = 0.068
+anchor_right = 1.02
+anchor_bottom = 1.0
+margin_top = -6.908
+margin_right = -24.9401
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileCard" type="TextureRect" parent="KeyboardTile/TileBorder"]
+anchor_left = 0.489
+anchor_top = 0.5
+anchor_right = 0.489
+anchor_bottom = 0.5
+margin_left = -263.415
+margin_top = -118.95
+margin_right = 280.585
+margin_bottom = 140.05
+texture = ExtResource( 7 )
+
+[node name="SelectedTexture" type="TextureRect" parent="KeyboardTile/TileBorder"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.48
+anchor_top = 0.905
+anchor_right = 0.48
+anchor_bottom = 0.905
+margin_left = -47.32
+margin_top = -13.61
+margin_right = 47.68
+margin_bottom = 13.39
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectPrompt" type="Control" parent="."]
+margin_left = 491.512
+margin_top = 597.0
+margin_right = 939.512
+margin_bottom = 833.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectPrompt"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="SelectTexture" type="TextureRect" parent="SelectPrompt/VBoxContainer"]
+margin_top = 36.0
+margin_right = 448.0
+margin_bottom = 150.0
+texture = ExtResource( 11 )
+stretch_mode = 4
+
+[node name="Picture" type="TextureRect" parent="SelectPrompt/VBoxContainer"]
+margin_top = 154.0
+margin_right = 448.0
+margin_bottom = 200.0
+texture = ExtResource( 9 )
+stretch_mode = 4
+
+[node name="confirmPrompt" type="Control" parent="."]
+visible = false
+margin_left = 504.372
+margin_top = 597.0
+margin_right = 952.372
+margin_bottom = 833.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="confirmPrompt"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="SelectTexture" type="TextureRect" parent="confirmPrompt/VBoxContainer"]
+margin_top = 36.0
+margin_right = 448.0
+margin_bottom = 150.0
+texture = ExtResource( 10 )
+stretch_mode = 4
+
+[node name="Picture" type="TextureRect" parent="confirmPrompt/VBoxContainer"]
+margin_top = 154.0
+margin_right = 448.0
+margin_bottom = 200.0
+texture = ExtResource( 9 )
+stretch_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/select_gamepad = SubResource( 1 )
+anims/select_keyboard = SubResource( 2 )
+
+[node name="UISound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+bus = "Sound Effects"

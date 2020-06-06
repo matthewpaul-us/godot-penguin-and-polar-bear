@@ -1,7 +1,7 @@
-[gd_scene load_steps=144 format=2]
+[gd_scene load_steps=157 format=2]
 
 [ext_resource path="res://Player/Animations/Bear/Swim/Armature_Swim_41.png" type="Texture" id=1]
-[ext_resource path="res://Player/penguin.png" type="Texture" id=2]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle5.png" type="Texture" id=2]
 [ext_resource path="res://Player/Player.cs" type="Script" id=3]
 [ext_resource path="res://Player/snowball/Snowball.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/player_hurt.wav" type="AudioStream" id=5]
@@ -139,6 +139,18 @@
 [ext_resource path="res://Player/Animations/Bear/Swim/Armature_animtion0_36.png" type="Texture" id=137]
 [ext_resource path="res://Player/Animations/Bear/Swim/Armature_animtion0_31.png" type="Texture" id=138]
 [ext_resource path="res://Player/Animations/Bear/Swim/Armature_animtion0_35.png" type="Texture" id=139]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle4.png" type="Texture" id=140]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle2.png" type="Texture" id=141]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle7.png" type="Texture" id=142]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle8.png" type="Texture" id=143]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle6.png" type="Texture" id=144]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle9.png" type="Texture" id=145]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle0.png" type="Texture" id=146]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle1.png" type="Texture" id=147]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle3.png" type="Texture" id=148]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle11.png" type="Texture" id=149]
+[ext_resource path="res://Player/Animations/Penguin/12FPS_PenguinIdle10.png" type="Texture" id=150]
+[ext_resource path="res://Misc/ScreenShake.tscn" type="PackedScene" id=151]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -158,12 +170,19 @@ animations = [ {
 "speed": 24.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 146 ), ExtResource( 147 ), ExtResource( 141 ), ExtResource( 148 ), ExtResource( 140 ), ExtResource( 2 ), ExtResource( 144 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 145 ), ExtResource( 150 ), ExtResource( 149 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 38.3918
 height = 102.0
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle"
+[sub_resource type="Animation" id=4]
 length = 2.0
 loop = true
 step = 0.0416667
@@ -192,8 +211,7 @@ tracks/1/keys = {
 "values": [ "idle" ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "swim"
+[sub_resource type="Animation" id=5]
 length = 2.0
 loop = true
 step = 0.0416667
@@ -228,8 +246,8 @@ collision_mask = 21
 script = ExtResource( 3 )
 Health = 5
 Weapon = ExtResource( 4 )
-MaxMoveSpeed = 75.0
 MaxAcceleration = 200.0
+HurtColor = Color( 0.698039, 0.0862745, 0.0862745, 1 )
 DampingFactor = 0.97
 AngleDampingFactor = 3.0
 
@@ -239,15 +257,25 @@ frames = SubResource( 1 )
 animation = "swim"
 frame = 48
 
-[node name="PenguinSprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="CrateSprite" type="Sprite" parent="BearSprite"]
+position = Vector2( 7.62939e-06, 68.9898 )
+scale = Vector2( 1.8, 1.8 )
+
+[node name="PenguinSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.316101, -19.7552 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 2 )
+frame = 6
+playing = true
+centered = false
+offset = Vector2( -130.44, -160.08 )
 
 [node name="WeaponSlot" type="Position2D" parent="PenguinSprite"]
-position = Vector2( 17.3487, -16.627 )
+position = Vector2( 129.003, -108.818 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -5.36443 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
@@ -258,15 +286,19 @@ limit_left = -2160
 limit_top = -1350
 limit_right = 2160
 limit_bottom = 1350
-smoothing_enabled = true
+limit_smoothed = true
 drag_margin_left = 0.4
 drag_margin_top = 0.4
 drag_margin_right = 0.4
 drag_margin_bottom = 0.4
 editor_draw_limits = true
 
+[node name="ScreenShake" parent="PlayerCamera" instance=ExtResource( 151 )]
+
 [node name="BearAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle = SubResource( 3 )
-anims/swim = SubResource( 4 )
+anims/idle = SubResource( 4 )
+anims/swim = SubResource( 5 )
 
 [node name="PenguinAttackSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Tween" type="Tween" parent="."]

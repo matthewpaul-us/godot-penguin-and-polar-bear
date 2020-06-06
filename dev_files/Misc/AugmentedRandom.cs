@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Godot;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -41,6 +42,11 @@ using System.Threading.Tasks;
                 list[items] = value;
             }
         }
+
+    public Vector2 Vector(float componentFromZero)
+    {
+        return new Vector2((float)NextDouble() * -componentFromZero, (float)NextDouble() * componentFromZero);
+    }
 
     public int Sign()
     {

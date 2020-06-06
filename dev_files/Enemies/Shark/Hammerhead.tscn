@@ -7,5 +7,5 @@
 [node name="Sprite" parent="." index="1"]
 scale = Vector2( 0.538558, 0.368809 )
 animation = "swim_underwater"
-frame = 24
+frame = 41
 playing = true

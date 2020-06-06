@@ -111,7 +111,7 @@
 [ext_resource path="res://Enemies/Shark/SurfacedSwim/Armature_SwimSurfaced_35.png" type="Texture" id=109]
 [ext_resource path="res://Enemies/Shark/SurfacedSwim/Armature_SwimSurfaced_39.png" type="Texture" id=110]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 48 ), ExtResource( 46 ), ExtResource( 47 ) ],
 "loop": true,
@@ -123,26 +123,25 @@ animations = [ {
 "name": "submerge",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 74 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 79 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 43 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 92 ), ExtResource( 87 ), ExtResource( 91 ), ExtResource( 83 ), ExtResource( 106 ), ExtResource( 97 ), ExtResource( 93 ), ExtResource( 95 ), ExtResource( 104 ), ExtResource( 85 ), ExtResource( 94 ), ExtResource( 98 ), ExtResource( 84 ), ExtResource( 107 ), ExtResource( 96 ), ExtResource( 109 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 86 ), ExtResource( 110 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 90 ), ExtResource( 88 ), ExtResource( 103 ), ExtResource( 105 ), ExtResource( 82 ), ExtResource( 108 ), ExtResource( 89 ) ],
-"loop": true,
-"name": "swim",
-"speed": 24.0
-}, {
 "frames": [ ExtResource( 17 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 19 ), ExtResource( 32 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 30 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 34 ), ExtResource( 65 ), ExtResource( 57 ), ExtResource( 54 ), ExtResource( 58 ), ExtResource( 61 ), ExtResource( 67 ), ExtResource( 62 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 59 ), ExtResource( 66 ), ExtResource( 56 ), ExtResource( 60 ), ExtResource( 55 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 70 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 71 ) ],
 "loop": true,
 "name": "swim_underwater",
 "speed": 24.0
+}, {
+"frames": [ ExtResource( 74 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 79 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 43 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 92 ), ExtResource( 87 ), ExtResource( 91 ), ExtResource( 83 ), ExtResource( 106 ), ExtResource( 97 ), ExtResource( 93 ), ExtResource( 95 ), ExtResource( 104 ), ExtResource( 85 ), ExtResource( 94 ), ExtResource( 98 ), ExtResource( 84 ), ExtResource( 107 ), ExtResource( 96 ), ExtResource( 109 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 86 ), ExtResource( 110 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 90 ), ExtResource( 88 ), ExtResource( 103 ), ExtResource( 105 ), ExtResource( 82 ), ExtResource( 108 ), ExtResource( 89 ) ],
+"loop": true,
+"name": "swim",
+"speed": 24.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 47.8615
 height = 154.223
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 23.768
 
-[sub_resource type="Animation" id=3]
-resource_name = "submerge"
+[sub_resource type="Animation" id=4]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:collision_mask")
@@ -206,11 +205,13 @@ RotateSpeed = 0.785
 script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 4 )
-animation = "swim_underwater"
+scale = Vector2( 0.539, 0.369 )
+frames = SubResource( 1 )
+animation = "swim"
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AttackCollider" type="Area2D" parent="."]
 collision_layer = 16
@@ -218,11 +219,63 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCollider"]
 position = Vector2( 4.19113, -123.34 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/submerge = SubResource( 3 )
+anims/submerge = SubResource( 4 )
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 bus = "Sound Effects"
+
+[node name="Whiskers" type="Node2D" parent="."]
+
+[node name="FrontLeftWhisker" type="RayCast2D" parent="Whiskers"]
+position = Vector2( -43.2886, -103.111 )
+enabled = true
+cast_to = Vector2( 0, -50 )
+collision_mask = 68
+
+[node name="FrontRightWhisker" type="RayCast2D" parent="Whiskers"]
+position = Vector2( 44.1115, -102.161 )
+enabled = true
+cast_to = Vector2( 0, -50 )
+collision_mask = 68
+
+[node name="BackRightWhisker" type="RayCast2D" parent="Whiskers"]
+position = Vector2( 53.6115, 106.839 )
+enabled = true
+cast_to = Vector2( 75, 0 )
+collision_mask = 68
+
+[node name="BackLeftWhisker" type="RayCast2D" parent="Whiskers"]
+position = Vector2( -52.7887, 106.839 )
+enabled = true
+cast_to = Vector2( -75, 0 )
+collision_mask = 68
+
+[node name="BackRightWhisker2" type="RayCast2D" parent="Whiskers"]
+position = Vector2( 53.6115, -67.9614 )
+rotation = -0.591399
+enabled = true
+cast_to = Vector2( 75, 0 )
+collision_mask = 68
+
+[node name="BackLeftWhisker2" type="RayCast2D" parent="Whiskers"]
+position = Vector2( -52.7887, -67.9614 )
+rotation = 0.674621
+enabled = true
+cast_to = Vector2( -75, 0 )
+collision_mask = 68
+
+[node name="BackRightWhisker3" type="RayCast2D" parent="Whiskers"]
+position = Vector2( 53.6115, 5.18869 )
+enabled = true
+cast_to = Vector2( 75, 0 )
+collision_mask = 68
+
+[node name="BackLeftWhisker3" type="RayCast2D" parent="Whiskers"]
+position = Vector2( -52.7887, 5.18869 )
+enabled = true
+cast_to = Vector2( -75, 0 )
+collision_mask = 68

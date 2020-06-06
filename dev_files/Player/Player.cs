@@ -5,12 +5,19 @@ public class Player : KinematicBody2D, IDamageable
 {
 	[Signal] public delegate void Damaged();
 	[Signal] public delegate void HealthChanged();
+	[Signal] public delegate void CratePickedUp();
+	[Signal] public delegate void CrateDroppedOff();
 
 	[Export] public int Health;
 	[Export] public bool IsControllerSwitchingActive;
 	[Export] public PackedScene Weapon;
-	[Export] public float MaxMoveSpeed = 50;
-	[Export] public float MaxAcceleration = 75;
+	[Export] public float MaxMoveSpeed = 75;
+	[Export] public float MaxAcceleration = 100;
+	[Export] public float CratedMaxMoveSpeed = 50;
+	[Export] public float CratedMaxAcceleration = 75;
+	[Export] public Color HurtColor;
+
+
 	[Export] public float DampingFactor = 0.1f;
 	[Export] public float AngleDampingFactor = 0.1f;
 
@@ -18,11 +25,17 @@ public class Player : KinematicBody2D, IDamageable
 	public IController PenguinController;
 
 	public Vector2 Velocity;
+	public bool IsCarryingCrate = false;
+	public Camera2D Camera;
 
 	private AnimatedSprite _bearSprite;
-	private Sprite _penguinSprite;
+	private AnimatedSprite _penguinSprite;
+	private Sprite _crateSprite;
 	private Position2D _weaponSlot;
 	private DebugGUI _debug;
+	private Tween _tween;
+
+
 	private AudioStreamPlayer2D _hurtSound;
 	private AudioStreamPlayer2D _penguinAttackSound;
 	private AugmentedRandom _rand;
@@ -31,13 +44,16 @@ public class Player : KinematicBody2D, IDamageable
 	public override void _Ready()
 	{
 		_bearSprite = GetNode<AnimatedSprite>("BearSprite");
-		_penguinSprite = GetNode<Sprite>("PenguinSprite");
+		_penguinSprite = GetNode<AnimatedSprite>("PenguinSprite");
 		_weaponSlot = GetNode<Position2D>("PenguinSprite/WeaponSlot");
 		_debug = Globals.DebugGUI;
 		_hurtSound = GetNode<AudioStreamPlayer2D>("HurtSound");
 		_penguinAttackSound = GetNode<AudioStreamPlayer2D>("PenguinAttackSound");
 		_rand = Globals.Random;
 		_bearAnim = GetNode<AnimationPlayer>("BearAnimationPlayer");
+		_crateSprite = GetNode<Sprite>("BearSprite/CrateSprite");
+		Camera = GetNode<Camera2D>("PlayerCamera");
+		_tween = GetNode<Tween>("Tween");
 
 		BearController = new ActionController()
 		{
@@ -76,11 +92,38 @@ public class Player : KinematicBody2D, IDamageable
 		HandleDebug();
 	}
 
+	public void OnHomeBaseEntered()
+	{
+		if (IsCarryingCrate)
+		{
+			UnloadCrate();
+		}
+	}
+
+	public void OnCrateCollected(Crate crate)
+	{
+		_crateSprite.Texture = crate.CarryTexture;
+		IsCarryingCrate = true;
+		EmitSignal(nameof(CratePickedUp));
+	}
+
+	public void UnloadCrate()
+	{
+		_crateSprite.Texture = null;
+		IsCarryingCrate = false;
+		EmitSignal(nameof(CrateDroppedOff));
+	}
+
 	private void HandleDebug()
 	{
 		if (Input.IsActionJustPressed("debug_swap_controllers"))
 		{
 			SwapControllers();
+		}
+
+		if (Input.IsActionJustPressed("ui_select"))
+		{
+			ShowHurt();
 		}
 	}
 
@@ -113,7 +156,7 @@ public class Player : KinematicBody2D, IDamageable
 	{
 		var actions = PenguinController.GetInput(this);
 
-		_penguinSprite.LookAt(GlobalPosition + actions.Direction.Rotated(Mathf.Pi / 2));
+		_penguinSprite.LookAt(_penguinSprite.GlobalPosition + actions.Direction.Rotated(Mathf.Pi / 2));
 
 		if(actions.IsFirePressed)
 		{
@@ -142,7 +185,7 @@ public class Player : KinematicBody2D, IDamageable
 	{
 		var actions = BearController.GetInput(this);
 
-		Velocity += actions.Direction * MaxAcceleration * delta;
+		Velocity += actions.Direction * (IsCarryingCrate? CratedMaxAcceleration : MaxAcceleration) * delta;
 
 		if(actions.Direction == Vector2.Zero)
 		{
@@ -157,9 +200,9 @@ public class Player : KinematicBody2D, IDamageable
 		}
 
 		// Make sure we don't break the speed limit
-		if(Velocity.Length() > MaxMoveSpeed)
+		if(Velocity.Length() > (IsCarryingCrate ? CratedMaxMoveSpeed : MaxMoveSpeed))
 		{
-			Velocity = Velocity.Normalized() * MaxMoveSpeed;
+			Velocity = Velocity.Normalized() * (IsCarryingCrate ? CratedMaxMoveSpeed : MaxMoveSpeed);
 		}
 	}
 
@@ -172,9 +215,8 @@ public class Player : KinematicBody2D, IDamageable
 
 	public void Damage()
 	{
-		GD.Print("I'm Hurt!");
-		_hurtSound.PitchScale = _rand.Binomial() * 0.5f + 1;
-		_hurtSound.Play();
+		ShowHurt();
+
 		EmitSignal(nameof(Damaged));
 		ChangeHealth(Health - 1);
 
@@ -182,6 +224,19 @@ public class Player : KinematicBody2D, IDamageable
 		{
 			SwapControllers();
 		}
+	}
+
+	public void ShowHurt()
+	{
+		_hurtSound.PitchScale = _rand.Binomial() * 0.5f + 1;
+		_hurtSound.Play();
+
+		Camera.GetNode<ScreenShake>("ScreenShake").Start(0.2f, 30, 20);
+
+		_tween.InterpolateProperty(_bearSprite, "modulate",
+			HurtColor, Colors.White, 1,
+			Tween.TransitionType.Cubic, Tween.EaseType.Out);
+		_tween.Start();
 	}
 
 	public void ChangeHealth(int newHealth)
