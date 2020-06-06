@@ -105,13 +105,11 @@ public class Enemy : KinematicBody2D, IDamageable
 		switch (whisker)
 		{
 			case Whisker.FrontLeft:
-				//_frontLeftWhisker.ForceRaycastUpdate();
 				return _frontLeftWhisker.IsColliding();
-				break;
+
 			case Whisker.FrontRight:
-				//_frontRightWhisker.ForceRaycastUpdate();
 				return _frontRightWhisker.IsColliding();
-				break;
+
 			case Whisker.Left:
 				_backLeftWhisker.ForceRaycastUpdate();
 				_backLeftWhisker2.ForceRaycastUpdate();
@@ -119,7 +117,7 @@ public class Enemy : KinematicBody2D, IDamageable
 				return _backLeftWhisker.IsColliding()
 					|| _backLeftWhisker2.IsColliding()
 					|| _backLeftWhisker3.IsColliding();
-				break;
+
 			case Whisker.Right:
 				_backRightWhisker.ForceRaycastUpdate();
 				_backRightWhisker2.ForceRaycastUpdate();
@@ -127,7 +125,7 @@ public class Enemy : KinematicBody2D, IDamageable
 				return _backRightWhisker.IsColliding()
 					|| _backRightWhisker2.IsColliding()
 					|| _backRightWhisker3.IsColliding();
-				break;
+
 		}
 
 		return false;

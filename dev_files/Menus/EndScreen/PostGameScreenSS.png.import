@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Chunk2.png-d31527cbd50071cb5f81375bb421d149.stex"
+path="res://.import/PostGameScreenSS.png-a837590cf3b806be78bbec4f080a48e9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/Floaters/Chunk2.png"
-dest_files=[ "res://.import/Chunk2.png-d31527cbd50071cb5f81375bb421d149.stex" ]
+source_file="res://Menus/EndScreen/PostGameScreenSS.png"
+dest_files=[ "res://.import/PostGameScreenSS.png-a837590cf3b806be78bbec4f080a48e9.stex" ]
 
 [params]
 

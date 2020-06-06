@@ -11,7 +11,10 @@ public class Globals : Node
 	public static DebugGUI DebugGUI { get; private set; }
 	public static LevelLoader LevelLoader { get; private set; }
 	public static bool IsGamepad {get; set;}
-public override void _Ready()
+	public static int CrateCount { get; set; }
+	public static int TotalCrateCount { get; set; }
+
+	public override void _Ready()
 	{
 		Random = new AugmentedRandom();
 

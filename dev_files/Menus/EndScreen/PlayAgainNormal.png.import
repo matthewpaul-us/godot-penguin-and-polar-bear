@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PostgameScreen.png-a57221cfd7e6b7f3621726e8b20d89bf.stex"
+path="res://.import/PlayAgainNormal.png-d30f7341f84c186ba82f840cbce623fc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menus/EndScreen/PostgameScreen.png"
-dest_files=[ "res://.import/PostgameScreen.png-a57221cfd7e6b7f3621726e8b20d89bf.stex" ]
+source_file="res://Menus/EndScreen/PlayAgainNormal.png"
+dest_files=[ "res://.import/PlayAgainNormal.png-d30f7341f84c186ba82f840cbce623fc.stex" ]
 
 [params]
 

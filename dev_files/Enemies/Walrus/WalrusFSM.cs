@@ -74,7 +74,7 @@ public class WalrusFSM : AbstractStateMachine<Walrus>
 
 			case "attack":
 				return "reload";
-				break;
+
 
 			case "reload":
 				if ((_parent.GlobalPosition - Target.GlobalPosition).Length() > AttackDistance)

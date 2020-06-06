@@ -4,10 +4,7 @@ using System.Linq;
 
 public class World : Node2D
 {
-	[Export] public string LoseScene;
-	[Export] public float HurtShakeFrequency;
-	[Export] public float HurtShakeAmplitude;
-	[Export] public float HurtShakeDuration;
+	[Export] public string PostGameScene;
 
 	private Player _player;
 	private HomeBase _homeBase;
@@ -57,7 +54,7 @@ public class World : Node2D
 	{
 		if (newHealth <= 0)
 		{
-			Globals.LevelLoader.LoadScene(LoseScene);
+			Globals.LevelLoader.LoadScene(PostGameScene);
 		}
 	}
 
@@ -66,5 +63,18 @@ public class World : Node2D
 		CrateCount++;
 
 		_ui.SetCrateCount(CrateCount);
+
+		if (CrateCount >= TotalCrateCount)
+		{
+			Win();
+		}
+	}
+
+	public void Win()
+	{
+		Globals.CrateCount = CrateCount;
+		Globals.TotalCrateCount = TotalCrateCount;
+
+		Globals.LevelLoader.LoadScene(PostGameScene);
 	}
 }

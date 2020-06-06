@@ -4,13 +4,14 @@
 [ext_resource path="res://Environment/Floaters/IceChunks/Chunk4.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 73.5299, 111.798 )
+extents = Vector2( 73.1866, 110.637 )
 
 [node name="IceChunk04" instance=ExtResource( 1 )]
 
-[node name="CollisionShape2D" parent="." index="0"]
-rotation = 0.260039
-shape = SubResource( 1 )
-
-[node name="Sprite" parent="." index="1"]
+[node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2( 2.45544, -31.9212 )
+rotation = 0.342153
+shape = SubResource( 1 )

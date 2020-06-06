@@ -139,7 +139,7 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 
 			case "surface":
 				return "move_to_target";
-				break;
+
 
 			case "move_to_target":
 				if (_parent.IsCloseTo(Target.Position))
@@ -150,15 +150,15 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 
 			case "attack":
 				return "submerge";
-				break;
+
 
 			case "submerge":
 				return "wander";
-				break;
+
 
 			case "im_hit":
 				return "submerge";
-				break;
+
 
 			case "avoid_left":
 				if (!_parent.IsWhiskerColliding(Enemy.Whisker.Right))

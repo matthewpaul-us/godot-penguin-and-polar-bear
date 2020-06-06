@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://World/LevelLayout.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -25,6 +25,10 @@
 [ext_resource path="res://Environment/Floaters/IceChunks/IceChunk01.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Environment/Walls/WallBottom03.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Environment/Walls/WallLeft03.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk07.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk08.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk05.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk06.tscn" type="PackedScene" id=29]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.476821, 1 )
@@ -32,10 +36,7 @@ colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 3 )
-LoseScene = "res://Menus/EndScreen/EndScreen.tscn"
-HurtShakeFrequency = 30.0
-HurtShakeAmplitude = 20.0
-HurtShakeDuration = 0.2
+PostGameScene = "res://Menus/EndScreen/EndScreen.tscn"
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -112,6 +113,33 @@ position = Vector2( -1311.56, -721.832 )
 
 [node name="IceChunk04" parent="Flotsam" instance=ExtResource( 5 )]
 position = Vector2( 1253.71, -676.295 )
+
+[node name="IceChunk06" parent="Flotsam" instance=ExtResource( 29 )]
+position = Vector2( -723.087, 438.169 )
+
+[node name="IceChunk05" parent="Flotsam" instance=ExtResource( 28 )]
+position = Vector2( -1170.65, 158.605 )
+
+[node name="IceChunk07" parent="Flotsam" instance=ExtResource( 26 )]
+position = Vector2( -1696.89, -18.5453 )
+
+[node name="IceChunk08" parent="Flotsam" instance=ExtResource( 27 )]
+position = Vector2( -1480.53, -312.178 )
+
+[node name="IceChunk09" parent="Flotsam" instance=ExtResource( 28 )]
+position = Vector2( 503.443, 719.205 )
+
+[node name="IceChunk10" parent="Flotsam" instance=ExtResource( 6 )]
+position = Vector2( 1078.81, -147.266 )
+
+[node name="IceChunk11" parent="Flotsam" instance=ExtResource( 26 )]
+position = Vector2( 1602.8, -489.744 )
+
+[node name="IceChunk12" parent="Flotsam" instance=ExtResource( 4 )]
+position = Vector2( 729.479, -715.78 )
+
+[node name="IceChunk13" parent="Flotsam" instance=ExtResource( 27 )]
+position = Vector2( -1452.11, 972.639 )
 
 [node name="WorldUI" parent="." instance=ExtResource( 9 )]
 

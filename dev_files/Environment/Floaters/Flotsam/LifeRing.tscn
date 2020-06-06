@@ -4,15 +4,14 @@
 [ext_resource path="res://Environment/Floaters/Flotsam/LifeRing.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 37.0
+radius = 37.7322
 
 [node name="LifeRing" instance=ExtResource( 1 )]
 Weight = 0.5
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 0.605072, -0.247986 )
-shape = SubResource( 1 )
-
-[node name="Sprite" parent="." index="1"]
+[node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource( 1 )
