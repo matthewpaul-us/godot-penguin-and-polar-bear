@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://World/LevelLayout.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/World.cs" type="Script" id=3]
-[ext_resource path="res://Environment/Walls/WallBottom01.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Environment/Walls/WallLeft03.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Environment/Walls/WallBottom03.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk02.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk04.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk03.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Environment/Walls/WallRight02.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Environment/Walls/WallBottom02.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/WorldUI.tscn" type="PackedScene" id=9]
@@ -19,6 +19,12 @@
 [ext_resource path="res://Environment/Walls/WallLeft04.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Environment/Walls/WallTop01.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Environment/Walls/WallTop03.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Crate/CrateFloating.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Environment/Floaters/Flotsam/LifeRing.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Environment/Walls/WallBottom01.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk01.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Environment/Walls/WallBottom03.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Environment/Walls/WallLeft03.tscn" type="PackedScene" id=25]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.476821, 1 )
@@ -45,6 +51,8 @@ texture = ExtResource( 12 )
 expand = true
 stretch_mode = 4
 __meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -58,6 +66,7 @@ rect_pivot_offset = Vector2( 2160, 1350 )
 texture = ExtResource( 1 )
 expand = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -86,9 +95,43 @@ color_ramp = SubResource( 1 )
 
 [node name="Flotsam" type="Node" parent="."]
 
+[node name="LifeRing" parent="Flotsam" instance=ExtResource( 21 )]
+position = Vector2( 899.443, 627.447 )
+
+[node name="LifeRing2" parent="Flotsam" instance=ExtResource( 21 )]
+position = Vector2( -1412.53, -24.7269 )
+
+[node name="IceChunk01" parent="Flotsam" instance=ExtResource( 23 )]
+position = Vector2( 1491.35, 478.142 )
+
+[node name="IceChunk02" parent="Flotsam" instance=ExtResource( 4 )]
+position = Vector2( -966.313, 916.903 )
+
+[node name="IceChunk03" parent="Flotsam" instance=ExtResource( 6 )]
+position = Vector2( -1311.56, -721.832 )
+
+[node name="IceChunk04" parent="Flotsam" instance=ExtResource( 5 )]
+position = Vector2( 1253.71, -676.295 )
+
 [node name="WorldUI" parent="." instance=ExtResource( 9 )]
 
 [node name="Crates" type="Node" parent="."]
+
+[node name="CrateFloating" parent="Crates" instance=ExtResource( 20 )]
+position = Vector2( 1472.79, 199.026 )
+scale = Vector2( 0.43, 0.43 )
+
+[node name="CrateFloating2" parent="Crates" instance=ExtResource( 20 )]
+position = Vector2( 1804.05, -415.379 )
+scale = Vector2( 0.43, 0.43 )
+
+[node name="CrateFloating3" parent="Crates" instance=ExtResource( 20 )]
+position = Vector2( -844.822, -653.376 )
+scale = Vector2( 0.43, 0.43 )
+
+[node name="CrateFloating4" parent="Crates" instance=ExtResource( 20 )]
+position = Vector2( -1852.45, 419.156 )
+scale = Vector2( 0.43, 0.43 )
 
 [node name="HomeBase" parent="." instance=ExtResource( 11 )]
 
@@ -97,13 +140,13 @@ color_ramp = SubResource( 1 )
 [node name="WallBottom04" parent="Walls" instance=ExtResource( 10 )]
 position = Vector2( -1498.94, 1328.17 )
 
-[node name="WallBottom03" parent="Walls" instance=ExtResource( 6 )]
+[node name="WallBottom03" parent="Walls" instance=ExtResource( 24 )]
 position = Vector2( -292.198, 1244.69 )
 
 [node name="WallBottom02" parent="Walls" instance=ExtResource( 8 )]
 position = Vector2( 1658.32, 1267.46 )
 
-[node name="WallBottom01" parent="Walls" instance=ExtResource( 4 )]
+[node name="WallBottom01" parent="Walls" instance=ExtResource( 22 )]
 position = Vector2( 573.011, 1259.87 )
 
 [node name="WallRight01" parent="Walls" instance=ExtResource( 14 )]
@@ -128,7 +171,7 @@ rotation = 0.0844627
 [node name="WallTop04" parent="Walls" instance=ExtResource( 16 )]
 position = Vector2( 1301.42, -1124.77 )
 
-[node name="WallLeft03" parent="Walls" instance=ExtResource( 5 )]
+[node name="WallLeft03" parent="Walls" instance=ExtResource( 25 )]
 position = Vector2( -2043.97, -555.469 )
 
 [node name="WallLeft04" parent="Walls" instance=ExtResource( 17 )]
