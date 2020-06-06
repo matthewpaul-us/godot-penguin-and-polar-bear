@@ -1,15 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Enemies/Shark/Hammerhead.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/LevelLayout.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/World.cs" type="Script" id=3]
-[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk02.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk04.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk03.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Environment/Floaters/Flotsam/LifeRing.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Environment/Floaters/IceChunks/IceChunk01.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/WorldUI.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Crate/Crate.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Environment/HomeBase/HomeBase.tscn" type="PackedScene" id=11]
 [ext_resource path="res://World/WaterGradient.png" type="Texture" id=12]
 
@@ -41,8 +35,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Reference" type="TextureRect" parent="Background"]
+modulate = Color( 1, 1, 1, 0.454902 )
+margin_right = 4320.0
+margin_bottom = 2700.0
+rect_scale = Vector2( 1.10325, 1.12978 )
+rect_pivot_offset = Vector2( 2160, 1350 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -1138.74, -318.848 )
+position = Vector2( -3.15308, -282.798 )
 z_index = 5
 IsControllerSwitchingActive = true
 
@@ -64,115 +70,10 @@ color_ramp = SubResource( 1 )
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Hammerhead" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 1366.48, -647.453 )
-
-[node name="Hammerhead2" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 1434.81, 491.284 )
-rotation = 0.833091
-
-[node name="Hammerhead3" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 149.663, 458.748 )
-rotation = 2.72337
-
-[node name="Hammerhead5" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( -297.365, -793.816 )
-rotation = 4.90652
-
-[node name="Hammerhead4" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( -1024.86, 562.862 )
-rotation = 3.35293
-
 [node name="Flotsam" type="Node" parent="."]
-
-[node name="LifeRing" parent="Flotsam" instance=ExtResource( 7 )]
-position = Vector2( -111.954, 456.585 )
-collision_layer = 1
-collision_mask = 1
-
-[node name="LifeRing2" parent="Flotsam" instance=ExtResource( 7 )]
-position = Vector2( 950.296, -195.674 )
-collision_layer = 1
-collision_mask = 1
-
-[node name="LifeRing3" parent="Flotsam" instance=ExtResource( 7 )]
-position = Vector2( -792.166, -997.02 )
-collision_layer = 1
-collision_mask = 1
-
-[node name="LifeRing4" parent="Flotsam" instance=ExtResource( 7 )]
-position = Vector2( -1248.75, 503.175 )
-collision_layer = 1
-collision_mask = 1
-
-[node name="IceChunk03" parent="Flotsam" instance=ExtResource( 6 )]
-position = Vector2( -1228.63, -1011.81 )
-
-[node name="IceChunk04" parent="Flotsam" instance=ExtResource( 6 )]
-position = Vector2( -614.316, -485.258 )
-
-[node name="IceChunk05" parent="Flotsam" instance=ExtResource( 6 )]
-position = Vector2( -1533.21, 376.849 )
-
-[node name="IceChunk06" parent="Flotsam" instance=ExtResource( 6 )]
-position = Vector2( -412.986, 991.165 )
-
-[node name="IceChunk07" parent="Flotsam" instance=ExtResource( 6 )]
-position = Vector2( 526.556, 196.168 )
-
-[node name="IceChunk08" parent="Flotsam" instance=ExtResource( 6 )]
-position = Vector2( 1084.09, 955.029 )
-
-[node name="IceChunk09" parent="Flotsam" instance=ExtResource( 6 )]
-position = Vector2( 1610.64, -5.16211 )
-
-[node name="IceChunk10" parent="Flotsam" instance=ExtResource( 6 )]
-position = Vector2( 1084.09, -980.84 )
-
-[node name="IceChunk01" parent="Flotsam" instance=ExtResource( 8 )]
-position = Vector2( 1084.09, -980.84 )
-
-[node name="IceChunk02" parent="Flotsam" instance=ExtResource( 8 )]
-position = Vector2( 1104.74, 340.713 )
-
-[node name="IceChunk11" parent="Flotsam" instance=ExtResource( 8 )]
-position = Vector2( 113.571, -454.284 )
-
-[node name="IceChunk12" parent="Flotsam" instance=ExtResource( 8 )]
-position = Vector2( -841.458, 247.792 )
-
-[node name="IceChunk13" parent="Flotsam" instance=ExtResource( 8 )]
-position = Vector2( 25.8113, 970.516 )
-
-[node name="IceChunk14" parent="Flotsam" instance=ExtResource( 4 )]
-position = Vector2( -1579.67, -185.843 )
-
-[node name="IceChunk15" parent="Flotsam" instance=ExtResource( 4 )]
-position = Vector2( 82.5969, -996.327 )
-
-[node name="IceChunk16" parent="Flotsam" instance=ExtResource( 4 )]
-position = Vector2( 1693.24, 918.893 )
-
-[node name="IceChunk17" parent="Flotsam" instance=ExtResource( 5 )]
-position = Vector2( -454.284, -51.6232 )
-
-[node name="IceChunk18" parent="Flotsam" instance=ExtResource( 5 )]
-position = Vector2( 557.53, 655.614 )
-
-[node name="IceChunk19" parent="Flotsam" instance=ExtResource( 5 )]
-position = Vector2( -490.42, -1058.27 )
-
-[node name="IceChunk20" parent="Flotsam" instance=ExtResource( 5 )]
-position = Vector2( -1682.92, -583.342 )
-
-[node name="IceChunk21" parent="Flotsam" instance=ExtResource( 5 )]
-position = Vector2( -1595.16, 1042.79 )
 
 [node name="WorldUI" parent="." instance=ExtResource( 9 )]
 
 [node name="Crates" type="Node" parent="."]
-
-[node name="Crate" parent="Crates" instance=ExtResource( 10 )]
-position = Vector2( -792.219, -237.108 )
 
 [node name="HomeBase" parent="." instance=ExtResource( 11 )]

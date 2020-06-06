@@ -73,7 +73,11 @@ public class Player : KinematicBody2D, IDamageable
 			Down = "player2_down",
 			Fire = "player2_fire",
 		});
-		compositeController.Controllers.Add(new MouseController());
+
+		if (!Globals.IsGamepad)
+		{
+			compositeController.Controllers.Add(new MouseController());
+		}
 
 		PenguinController = compositeController;
 

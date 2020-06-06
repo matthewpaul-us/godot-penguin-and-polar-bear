@@ -19,6 +19,7 @@ public class MainMenu : CanvasLayer
 		if((_isGamePadSelected && Input.IsActionJustPressed("gamepad_confirm"))
 			|| (_isKeyboardSelected && Input.IsActionJustPressed("keyboard_confirm")))
 		{
+			Globals.IsGamepad = _isGamePadSelected;
 			Globals.LevelLoader.LoadScene(PlayScene);
 		}
 

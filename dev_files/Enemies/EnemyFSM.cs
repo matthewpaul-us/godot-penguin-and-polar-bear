@@ -88,7 +88,6 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 		var debug = Globals.DebugGUI;
 
 		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy State", this, e => e._state);
-		debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Enemy Whiskers", this, e => e._parent.GetCollidingWhiskers().ToString());
 		if (Target != null)
 		{
 			debug.AddToGui<EnemyFSM>(DebugPane.TopLeft, "Distance To Player", this, e => (e._parent.Position - e.Target.Position).Length().ToString());
