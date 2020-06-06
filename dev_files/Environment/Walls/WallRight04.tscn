@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Environment/Walls/Wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Environment/Walls/ChunkLeftRight4.png" type="Texture" id=2]
+
+[node name="WallRight04" instance=ExtResource( 1 )]
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PoolVector2Array( 173.441, 292.88, -2.04657, 292.88, -68.7048, 254.79, -64.6237, 145.96, -110.876, -6.40161, -169.372, -30.8883, -140.805, -126.114, -129.922, -217.259, -173.453, -253.989, -148.967, -316.566, -6.12769, -368.261, 174.802, -335.612 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )
+flip_h = true

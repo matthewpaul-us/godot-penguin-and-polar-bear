@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Environment/Walls/Wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Environment/Walls/ChunkTop3.png" type="Texture" id=2]
+
+[node name="WallTop03" instance=ExtResource( 1 )]
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PoolVector2Array( -560.097, -220.051, -556.22, 2.23395, -501.941, 51.3434, -447.663, 152.147, -353.321, 174.117, -266.733, 143.101, -244.763, 96.5758, -149.129, 87.5293, -72.8799, 137.931, 36.9702, 170.24, 180.421, 137.931, 239.87, 70.7287, 389.783, 43.5893, 402.706, 20.3269, 533.234, -30.0749, 561.666, -128.294, 561.666, -220.051 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )

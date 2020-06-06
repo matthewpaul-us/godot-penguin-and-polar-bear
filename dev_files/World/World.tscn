@@ -1,11 +1,24 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://World/LevelLayout.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/World.cs" type="Script" id=3]
+[ext_resource path="res://Environment/Walls/WallBottom01.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Environment/Walls/WallLeft03.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Environment/Walls/WallBottom03.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Environment/Walls/WallRight02.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Environment/Walls/WallBottom02.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/WorldUI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Environment/Walls/WallBottom04.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Environment/HomeBase/HomeBase.tscn" type="PackedScene" id=11]
 [ext_resource path="res://World/WaterGradient.png" type="Texture" id=12]
+[ext_resource path="res://Environment/Walls/WallLeft01.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Environment/Walls/WallRight01.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Environment/Walls/WallTop02.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Environment/Walls/WallTop04.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Environment/Walls/WallLeft04.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Environment/Walls/WallTop01.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Environment/Walls/WallTop03.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.476821, 1 )
@@ -37,7 +50,8 @@ __meta__ = {
 
 [node name="Reference" type="TextureRect" parent="Background"]
 modulate = Color( 1, 1, 1, 0.454902 )
-margin_right = 4320.0
+margin_left = -3.32422
+margin_right = 4316.68
 margin_bottom = 2700.0
 rect_scale = Vector2( 1.10325, 1.12978 )
 rect_pivot_offset = Vector2( 2160, 1350 )
@@ -48,7 +62,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -3.15308, -282.798 )
+position = Vector2( 696.161, 770.6 )
 z_index = 5
 IsControllerSwitchingActive = true
 
@@ -77,3 +91,48 @@ color_ramp = SubResource( 1 )
 [node name="Crates" type="Node" parent="."]
 
 [node name="HomeBase" parent="." instance=ExtResource( 11 )]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="WallBottom04" parent="Walls" instance=ExtResource( 10 )]
+position = Vector2( -1498.94, 1328.17 )
+
+[node name="WallBottom03" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( -292.198, 1244.69 )
+
+[node name="WallBottom02" parent="Walls" instance=ExtResource( 8 )]
+position = Vector2( 1658.32, 1267.46 )
+
+[node name="WallBottom01" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 573.011, 1259.87 )
+
+[node name="WallRight01" parent="Walls" instance=ExtResource( 14 )]
+position = Vector2( 2073.15, 487.329 )
+
+[node name="WallRight02" parent="Walls" instance=ExtResource( 7 )]
+position = Vector2( 2057.17, -519.285 )
+
+[node name="WallTop02" parent="Walls" instance=ExtResource( 15 )]
+position = Vector2( -972.955, -1151.94 )
+
+[node name="WallTop01" parent="Walls" instance=ExtResource( 18 )]
+position = Vector2( 242.268, -1197.36 )
+
+[node name="WallTop03" parent="Walls" instance=ExtResource( 19 )]
+position = Vector2( -2195.47, -1160.82 )
+
+[node name="WallTop05" parent="Walls" instance=ExtResource( 19 )]
+position = Vector2( 2386.53, -1236.53 )
+rotation = 0.0844627
+
+[node name="WallTop04" parent="Walls" instance=ExtResource( 16 )]
+position = Vector2( 1301.42, -1124.77 )
+
+[node name="WallLeft03" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -2043.97, -555.469 )
+
+[node name="WallLeft04" parent="Walls" instance=ExtResource( 17 )]
+position = Vector2( -2113.71, 225.593 )
+
+[node name="WallLeft01" parent="Walls" instance=ExtResource( 13 )]
+position = Vector2( -1976.39, 1118.16 )

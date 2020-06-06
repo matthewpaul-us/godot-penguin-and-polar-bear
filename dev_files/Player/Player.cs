@@ -83,6 +83,8 @@ public class Player : KinematicBody2D, IDamageable
 
 		_debug.AddToGui<Player>(DebugPane.TopLeft, "Velocity", this, p => p.Velocity.ToString());
 		_debug.AddToGui<Player>(DebugPane.TopLeft, "Health", this, p => p.Health.ToString());
+		_debug.AddToGui<Player>(DebugPane.TopLeft, "Go fast?", this, p => p._isDebugFast.ToString());
+		_debug.AddToGui<Player>(DebugPane.TopLeft, "God Mode?", this, p => p._isDebugGodMode.ToString());
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -118,11 +120,38 @@ public class Player : KinematicBody2D, IDamageable
 		EmitSignal(nameof(CrateDroppedOff));
 	}
 
+	private bool _isDebugFast = false;
+	private bool _isDebugGodMode = false;
+
 	private void HandleDebug()
 	{
 		if (Input.IsActionJustPressed("debug_swap_controllers"))
 		{
 			SwapControllers();
+		}
+
+		if (Input.IsActionJustPressed("debug_go_fast"))
+		{
+			_isDebugFast = !_isDebugFast;
+			if (_isDebugFast)
+			{
+				MaxMoveSpeed *= 3;
+				MaxAcceleration *= 3;
+				CratedMaxMoveSpeed *= 3;
+				CratedMaxAcceleration *= 3;
+			}
+			else
+			{
+				MaxMoveSpeed /= 3;
+				MaxAcceleration /= 3;
+				CratedMaxMoveSpeed /= 3;
+				CratedMaxAcceleration /= 3;
+			}
+		}
+
+		if (Input.IsActionJustPressed("debug_god_mode"))
+		{
+			_isDebugGodMode = !_isDebugGodMode;
 		}
 
 		if (Input.IsActionJustPressed("ui_select"))
@@ -245,7 +274,10 @@ public class Player : KinematicBody2D, IDamageable
 
 	public void ChangeHealth(int newHealth)
 	{
-		Health = newHealth;
+		if (!_isDebugGodMode)
+		{
+			Health = newHealth;
+		}
 		EmitSignal(nameof(HealthChanged), newHealth);
 	}
 }
