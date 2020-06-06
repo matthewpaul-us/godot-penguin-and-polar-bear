@@ -26,6 +26,8 @@ public class World : Node2D
 		_player.Connect(nameof(Player.HealthChanged), _ui, nameof(_ui.SetHealth));
 		_player.Connect(nameof(Player.HealthChanged), this, nameof(OnPlayerLoseHealth));
 		_player.Connect(nameof(Player.CrateDroppedOff), this, nameof(OnPlayerDroppedOffCrate));
+		_player.Connect(nameof(Player.Damaged), _ui, nameof(WorldUI.OnPlayerDamaged));
+
 		_homeBase.Connect(nameof(HomeBase.PlayerEnteredHomeBase), _player, nameof(Player.OnHomeBaseEntered));
 
 

@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 public class WorldUI : CanvasLayer
 {
+	[Export] public bool AreAvatarsSwapped = false;
+	public int CurrentCrateCount { get; set; }
+	public int TotalCrateCount { get; set; }
+
 	private Label _crateLabel;
 
 	private TextureRect _health1;
@@ -14,12 +18,13 @@ public class WorldUI : CanvasLayer
 
 	private List<TextureRect> _healths;
 
-	public int CurrentCrateCount { get; set; }
-	public int TotalCrateCount { get; set; }
+	private AnimationPlayer _healthAnim;
+
 
 	public override void _Ready()
 	{
 		_crateLabel = GetNode<Label>("MarginContainer/HBoxContainer2/VBoxContainer/CurrentCrateCountLabel");
+		_healthAnim = GetNode<AnimationPlayer>("HealthAnimationPlayer");
 
 		_health1 = GetNode<TextureRect>("MarginContainer/HBoxContainer2/HBoxContainer/Health");
 		_health2 = GetNode<TextureRect>("MarginContainer/HBoxContainer2/HBoxContainer/Health2");
@@ -62,5 +67,25 @@ public class WorldUI : CanvasLayer
 		CurrentCrateCount = currentCount;
 
 		_crateLabel.Text = $"{CurrentCrateCount} of {TotalCrateCount}";
+	}
+
+	public void OnPlayerDamaged()
+	{
+		if (AreAvatarsSwapped)
+		{
+			_healthAnim.Play("swap_avatars_back");
+		}
+		else
+		{
+			_healthAnim.Play("swap_avatars");
+		}
+	}
+
+	public override void _PhysicsProcess(float delta)
+	{
+		if (Input.IsActionJustPressed("debug_swap_avatars"))
+		{
+			OnPlayerDamaged();
+		}
 	}
 }

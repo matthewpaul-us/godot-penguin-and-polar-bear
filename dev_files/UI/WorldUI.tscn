@@ -1,15 +1,241 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/WorldUI.cs" type="Script" id=1]
-[ext_resource path="res://UI/LittleFish4_9.png" type="Texture" id=2]
+[ext_resource path="res://Crate/Crate4.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/ComicSansMSBold.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Crate/Chest1.png" type="Texture" id=4]
+[ext_resource path="res://UI/HeartwOutline.png" type="Texture" id=4]
+[ext_resource path="res://UI/AvatarJack.png" type="Texture" id=5]
+[ext_resource path="res://UI/AvatarPablo.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "swap_avatars"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("JackAvatar:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 722 ), Vector2( 0, 722 ), Vector2( 631, 605.966 ), Vector2( 1262, 722 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PabloAvatar:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1262, 722 ), Vector2( 1262, 722 ), Vector2( 631, 605.966 ), Vector2( 0, 722 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("JackAvatar:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( -0.5, -0.5, -0.5, -0.5, -0.5, -0.5 ),
+"update": 0,
+"values": [ 0.0, 12.1702, -16.7189, 9.6056, -8.39896, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PabloAvatar:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( -0.5, -0.5, -0.5, -0.5, -0.5, -0.5 ),
+"update": 0,
+"values": [ 0.0, 12.1702, -16.7189, 9.6056, -8.39896, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("JackAvatar:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PabloAvatar:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("JackAvatar:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("PabloAvatar:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath(".:AreAvatarsSwapped")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "swap_avatars_back"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("JackAvatar:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1262, 722 ), Vector2( 1262, 722 ), Vector2( 631, 605.966 ), Vector2( 0, 722 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PabloAvatar:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 722 ), Vector2( 0, 722 ), Vector2( 631, 605.966 ), Vector2( 1262, 722 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("JackAvatar:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( -0.5, -0.5, -0.5, -0.5, -0.5, -0.5 ),
+"update": 0,
+"values": [ 0.0, 12.1702, -16.7189, 9.6056, -8.39896, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PabloAvatar:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( -0.5, -0.5, -0.5, -0.5, -0.5, -0.5 ),
+"update": 0,
+"values": [ 0.0, 12.1702, -16.7189, 9.6056, -8.39896, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("JackAvatar:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PabloAvatar:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("JackAvatar:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("PabloAvatar:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath(".:AreAvatarsSwapped")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="WorldUI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -33,60 +259,94 @@ margin_bottom = 840.0
 custom_constants/separation = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer2"]
-margin_right = 129.0
+margin_right = 148.0
 margin_bottom = 780.0
 
 [node name="CrateRect" type="TextureRect" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_right = 129.0
-margin_bottom = 75.0
-texture = ExtResource( 4 )
-stretch_mode = 4
+margin_right = 148.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 148, 103 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
 
 [node name="CurrentCrateCountLabel" type="Label" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 79.0
-margin_right = 129.0
-margin_bottom = 122.0
+margin_top = 107.0
+margin_right = 148.0
+margin_bottom = 150.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
 text = "77 of 77"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer2"]
-margin_left = 169.0
-margin_right = 504.0
+margin_left = 188.0
+margin_right = 593.0
 margin_bottom = 780.0
 custom_constants/separation = 20
 
 [node name="Health" type="TextureRect" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
-margin_right = 51.0
-margin_bottom = 23.0
+margin_right = 65.0
+margin_bottom = 63.0
 size_flags_vertical = 0
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="Health2" type="TextureRect" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 71.0
-margin_right = 122.0
-margin_bottom = 23.0
+margin_left = 85.0
+margin_right = 150.0
+margin_bottom = 63.0
 size_flags_vertical = 0
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="Health3" type="TextureRect" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 142.0
-margin_right = 193.0
-margin_bottom = 23.0
+margin_left = 170.0
+margin_right = 235.0
+margin_bottom = 63.0
 size_flags_vertical = 0
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="Health4" type="TextureRect" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 213.0
-margin_right = 264.0
-margin_bottom = 23.0
+margin_left = 255.0
+margin_right = 320.0
+margin_bottom = 63.0
 size_flags_vertical = 0
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="Health5" type="TextureRect" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 284.0
-margin_right = 335.0
-margin_bottom = 23.0
+margin_left = 340.0
+margin_right = 405.0
+margin_bottom = 63.0
 size_flags_vertical = 0
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
+
+[node name="JackAvatar" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1440.0
+margin_top = -178.0
+margin_right = -1262.0
+rect_pivot_offset = Vector2( 89, 89 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PabloAvatar" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 1262.0
+margin_top = -178.0
+margin_right = 1440.0
+rect_pivot_offset = Vector2( 89, 89 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/swap_avatars = SubResource( 2 )
+anims/swap_avatars_back = SubResource( 3 )
