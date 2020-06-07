@@ -97,6 +97,7 @@ collision_mask = 8
 script = ExtResource( 26 )
 Weapon = ExtResource( 27 )
 TargetPosition = Vector2( 300, 300 )
+HurtColor = Color( 0.839216, 0.156863, 0.156863, 1 )
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource( 28 )

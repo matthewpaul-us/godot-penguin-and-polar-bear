@@ -7,5 +7,17 @@
 [node name="Sprite" parent="." index="1"]
 scale = Vector2( 0.538558, 0.368809 )
 animation = "swim_underwater"
-frame = 41
+frame = 27
 playing = true
+
+[node name="FrontLeftWhisker" parent="Whiskers" index="0"]
+position = Vector2( -43.2886, -129.805 )
+cast_to = Vector2( 0, -25 )
+collision_mask = 64
+
+[node name="FrontRightWhisker" parent="Whiskers" index="1"]
+position = Vector2( 44.1115, -128.855 )
+cast_to = Vector2( 0, -25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="7"]
+polygon = PoolVector2Array( -36.6479, 46.495, -44.8412, -94.0508, -73.8327, -94.0508, -73.8327, -123.042, 71.7552, -125.563, 69.8644, -92.1601, 49.6964, -94.0508, 36.4612, 46.495, 1.16711, 108.26 )

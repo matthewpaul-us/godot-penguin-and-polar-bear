@@ -278,6 +278,6 @@ public class Player : KinematicBody2D, IDamageable
 		{
 			Health = newHealth;
 		}
-		EmitSignal(nameof(HealthChanged), newHealth);
+		EmitSignal(nameof(HealthChanged), Health);
 	}
 }

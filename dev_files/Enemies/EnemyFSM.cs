@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public class EnemyFSM : AbstractStateMachine<Enemy>
 {
@@ -121,7 +122,10 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 	{
 		// In any non-avoid state, check for obstacle avoidance
 		// If we see either whisker have issues
-		if (_state != null && !_state.StartsWith("avoid") &&
+		if (_state != null && !new string[] {
+				"avoid", "avoid_left", "avoid_right",
+				"submerge", "surface"
+			}.Contains(_state) &&
 			(_parent.IsWhiskerColliding(Enemy.Whisker.FrontLeft)
 				|| _parent.IsWhiskerColliding(Enemy.Whisker.FrontRight)))
 		{

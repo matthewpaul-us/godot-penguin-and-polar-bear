@@ -18,6 +18,7 @@ public class Enemy : KinematicBody2D, IDamageable
 	[Export] public float RotateSpeed { get; set; } = Mathf.Pi;
 	[Export] public float AverageWaitTime { get; set; } = 10f;
 	[Export] public float AngleDampingFactor { get; set; } = 3f;
+	[Export] public Color HurtColor { get; set; }
 
 	public Vector2 Velocity { get; set; }
 	public EnemyFSM Brain { get; set; }
@@ -34,6 +35,7 @@ public class Enemy : KinematicBody2D, IDamageable
 	private RayCast2D _backRightWhisker2;
 	private RayCast2D _backLeftWhisker3;
 	private RayCast2D _backRightWhisker3;
+	private Tween _tween;
 
 	public override void _Ready()
 	{
@@ -51,6 +53,8 @@ public class Enemy : KinematicBody2D, IDamageable
 		_backRightWhisker2 = GetNode<RayCast2D>("Whiskers/BackRightWhisker2");
 		_backLeftWhisker3 = GetNode<RayCast2D>("Whiskers/BackLeftWhisker3");
 		_backRightWhisker3 = GetNode<RayCast2D>("Whiskers/BackRightWhisker3");
+
+		_tween = GetNode<Tween>("Tween");
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -84,6 +88,10 @@ public class Enemy : KinematicBody2D, IDamageable
 
 	public void Damage()
 	{
+		_tween.InterpolateProperty(Sprite, "modulate",
+			HurtColor, Colors.White, 1,
+			Tween.TransitionType.Cubic, Tween.EaseType.Out);
+		_tween.Start();
 		Brain.SetState("im_hit");
 	}
 

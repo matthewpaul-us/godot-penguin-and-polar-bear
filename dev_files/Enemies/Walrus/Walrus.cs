@@ -58,7 +58,7 @@ public class Walrus : KinematicBody2D, IDamageable
 		weapon.Rotation = _weaponSlot.GlobalRotation;
 		weapon.TargetPosition = Brain.Target.GlobalPosition;
 
-		GetParent().AddChild(weapon);
+		GetTree().Root.AddChild(weapon);
 
 		_attackSound.PitchScale = Globals.Random.Binomial() * 0.3f + 1;
 		_attackSound.Play();
