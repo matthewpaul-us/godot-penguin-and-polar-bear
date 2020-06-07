@@ -8,10 +8,12 @@ public class MainMenu : CanvasLayer
 	private bool _isKeyboardSelected;
 	private bool _isGamePadSelected;
 	private AnimationPlayer _anim;
+	private AudioStreamPlayer _uiSound;
 
 	public override void _Ready()
 	{
 		_anim = GetNode<AnimationPlayer>("AnimationPlayer");
+		_uiSound = GetNode<AudioStreamPlayer>("UISound");
 	}
 
 	public override void _PhysicsProcess(float delta)

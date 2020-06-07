@@ -67,6 +67,7 @@
     <Compile Include="Environment\HomeBase\HomeBase.cs" />
     <Compile Include="Menus\EndScreen\EndScreen.cs" />
     <Compile Include="Menus\MainMenu\MainMenu.cs" />
+    <Compile Include="Menus\TitleScreen.cs" />
     <Compile Include="Misc\AbstractStateMachine.cs" />
     <Compile Include="Misc\AugmentedRandom.cs" />
     <Compile Include="Misc\Globals.cs" />
