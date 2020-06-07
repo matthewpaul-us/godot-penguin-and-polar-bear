@@ -41,9 +41,9 @@ public class Snowball : KinematicBody2D
 
 		KinematicCollision2D collision = MoveAndCollide(Velocity * delta);
 
-		if (collision != null)
+		if (collision != null && collision.Collider is Node collider)
 		{
-			GD.Print($"We hit {((Node)collision.Collider).Name}");
+			GD.Print($"We hit {collider.Name}");
 
 			PlayHit();
 
@@ -53,9 +53,13 @@ public class Snowball : KinematicBody2D
 
 			KillProjectile();
 
-			if (collision.Collider is IDamageable damageable)
+			if (collider is IDamageable damageable)
 			{
 				damageable.Damage();
+			}
+			else if (collider.GetParent() is IDamageable damageableParent)
+			{
+				damageableParent.Damage();
 			}
 		}
 	}

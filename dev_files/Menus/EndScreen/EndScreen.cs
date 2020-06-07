@@ -9,31 +9,11 @@ public class EndScreen : CanvasLayer
 	private Label _superlativeLabel;
 	public override void _Ready()
 	{
-		Globals.TotalCrateCount = 15;
-
 		_superlativeLabel = GetNode<Label>("SuperlativeLabel");
 		_cratesCollectedLabel = GetNode<Label>("CratesCollectedLabel");
 
 		SetCrateText(Globals.CrateCount, Globals.TotalCrateCount);
 		_superlativeLabel.Text = GetSuperlative();
-	}
-
-	public override void _PhysicsProcess(float delta)
-	{
-		// TODO : Remove cheat key
-		if (Input.IsActionJustPressed("debug_advance_crates"))
-		{
-			Globals.CrateCount++;
-
-			if (Globals.CrateCount > Globals.TotalCrateCount)
-			{
-				Globals.CrateCount = 0;
-			}
-
-			SetCrateText(Globals.CrateCount, Globals.TotalCrateCount);
-
-			_superlativeLabel.Text = GetSuperlative();
-		}
 	}
 
 	private void SetCrateText(int crateCount, int totalCrateCount)

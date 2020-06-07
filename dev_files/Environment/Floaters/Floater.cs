@@ -46,4 +46,5 @@ public class Floater : KinematicBody2D
 		}
 	}
 
+
 }

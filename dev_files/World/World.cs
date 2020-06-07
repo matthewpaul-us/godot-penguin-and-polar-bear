@@ -45,9 +45,16 @@ public class World : Node2D
 		{
 			TotalCrateCount++;
 			crate.Connect(nameof(Crate.Collected), _player, nameof(Player.OnCrateCollected));
+			crate.Player = _player;
 		}
 
 		_ui.SetCrateCount(0, TotalCrateCount);
+
+		Globals.CrateCount = 0;
+		Globals.TotalCrateCount = TotalCrateCount;
+
+		Globals.DebugGUI.AddToGui(DebugPane.TopLeft, "Collected", () => Globals.CrateCount.ToString());
+		Globals.DebugGUI.AddToGui(DebugPane.TopLeft, "Total", () => Globals.TotalCrateCount.ToString());
 	}
 
 	public void OnPlayerLoseHealth(int newHealth)
@@ -61,6 +68,7 @@ public class World : Node2D
 	public void OnPlayerDroppedOffCrate()
 	{
 		CrateCount++;
+		Globals.CrateCount++;
 
 		_ui.SetCrateCount(CrateCount);
 
