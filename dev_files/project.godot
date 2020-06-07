@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Penguin and Polar Bear"
 run/main_scene="res://Misc/LevelLoader.tscn"
+boot_splash/image="res://Assets/Art/SplashScreen.png"
 config/icon="res://icon.png"
 
 [autoload]

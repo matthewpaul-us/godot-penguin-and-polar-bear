@@ -61,7 +61,7 @@ public class Enemy : KinematicBody2D, IDamageable
 	{
 		Rotation = HandleRotation(delta);
 
-		var collision = MoveAndCollide(Velocity * delta);
+		MoveAndSlide(Velocity);
 	}
 
 	private float HandleRotation(float delta)
