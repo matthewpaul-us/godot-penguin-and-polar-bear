@@ -17,17 +17,23 @@ public class WalrusFSM : AbstractStateMachine<Walrus>
 	{
 		switch (newState)
 		{
+			case "wait":
+				_parent.CancelReload();
+				break;
+
 			case "attack":
 				_parent.Attack();
 				break;
 
 			case "reload":
 				_timeToReload = ReloadTime;
+				_parent.StartReload();
 				break;
 
 			case "stunned":
 				_timeUntilStunWearsOff = StunTime;
 				_parent.Anim.Play("stunned");
+				_parent.CancelReload();
 				break;
 
 			default:
@@ -90,7 +96,11 @@ public class WalrusFSM : AbstractStateMachine<Walrus>
 				break;
 
 			case "attack":
-				return "reload";
+				if (!_parent.Anim.IsPlaying())
+				{
+					return "reload";
+				}
+				break;
 
 
 			case "reload":

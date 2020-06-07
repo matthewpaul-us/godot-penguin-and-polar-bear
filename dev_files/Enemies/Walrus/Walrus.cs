@@ -15,10 +15,12 @@ public class Walrus : KinematicBody2D, IDamageable
 	private AudioStreamPlayer2D _attackSound;
 	private AudioStreamPlayer2D _hurtSound;
 	private Tween _tween;
+	private Sprite _iceBallSprite;
 
 	public override void _Ready()
 	{
 		Sprite = GetNode<AnimatedSprite>("AnimatedSprite");
+		_iceBallSprite = GetNode<Sprite>("WeaponSlot/IceballSprite");
 		Anim = GetNode<AnimationPlayer>("AnimationPlayer");
 		_attackSound = GetNode<AudioStreamPlayer2D>("AttackSound");
 		_hurtSound = GetNode<AudioStreamPlayer2D>("HurtSound");
@@ -61,7 +63,25 @@ public class Walrus : KinematicBody2D, IDamageable
 		weapon.TargetPosition = Brain.Target.GlobalPosition;
 
 		GetTree().Root.AddChild(weapon);
+		_iceBallSprite.Scale = Vector2.Zero;
 
 		_attackSound.Play();
+	}
+
+	public void StartReload()
+	{
+		_tween.InterpolateProperty(_iceBallSprite, "scale",
+			Vector2.Zero, Vector2.One,
+			Brain.ReloadTime,
+			Tween.TransitionType.Circ,
+			Tween.EaseType.In);
+
+		_tween.Start();
+	}
+
+	public void CancelReload()
+	{
+		_tween.Stop(_iceBallSprite);
+		_iceBallSprite.Scale = Vector2.Zero;
 	}
 }

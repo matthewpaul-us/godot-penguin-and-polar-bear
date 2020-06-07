@@ -190,6 +190,10 @@ scale = Vector2( 0.43, 0.43 )
 [node name="IceChunk13" parent="Flotsam" instance=ExtResource( 27 )]
 position = Vector2( -1452.11, 972.639 )
 
+[node name="Crate" parent="Flotsam/IceChunk13" instance=ExtResource( 41 )]
+position = Vector2( -7.36853, -32.6316 )
+scale = Vector2( 0.43, 0.43 )
+
 [node name="IceChunk14" parent="Flotsam" instance=ExtResource( 31 )]
 position = Vector2( 1985.98, 1051.56 )
 scale = Vector2( 0.714446, 0.767667 )
@@ -364,3 +368,7 @@ position = Vector2( 2140.35, 1124.35 )
 position = Vector2( 982.635, -23.4625 )
 
 [node name="HomeBase" parent="." instance=ExtResource( 11 )]
+
+[node name="CrateFloating" parent="." instance=ExtResource( 20 )]
+position = Vector2( 27.7254, -579.808 )
+scale = Vector2( 0.43, 0.43 )
