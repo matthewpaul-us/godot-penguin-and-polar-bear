@@ -11,7 +11,7 @@ radius = 17.9411
 [node name="Snowball" type="KinematicBody2D"]
 z_index = 6
 collision_layer = 8
-collision_mask = 4
+collision_mask = 260
 script = ExtResource( 2 )
 StartingSpeed = 900.0
 TimeToLive = 1.0

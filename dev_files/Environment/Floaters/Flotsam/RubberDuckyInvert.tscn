@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Environment/Floaters/Floater.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Environment/Floaters/Flotsam/DuckReverseInWater.png" type="Texture" id=2]
+[ext_resource path="res://Environment/Floaters/Flotsam/Ducky2.wav" type="AudioStream" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 24.8542
+
+[node name="RubberDuckyInvert" instance=ExtResource( 1 )]
+Weight = 0.5
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="TouchSound" parent="." index="2"]
+stream = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+position = Vector2( 1.62106, -2.16144 )
+shape = SubResource( 1 )

@@ -53,8 +53,8 @@ using System.Threading.Tasks;
         return NextDouble() > 0.5 ? 1 : -1;
     }
 
-    public float Binomial()
+    public float Binomial(float scale = 1f)
     {
-        return (float)(NextDouble() - NextDouble());
+        return (float)(NextDouble() - NextDouble()) * scale;
     }
 }

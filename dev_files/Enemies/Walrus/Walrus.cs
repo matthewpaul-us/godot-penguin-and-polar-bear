@@ -6,20 +6,25 @@ public class Walrus : KinematicBody2D, IDamageable
 {
 	[Export] public PackedScene Weapon;
 	[Export] public Vector2 TargetPosition;
+	[Export] public Color HurtColor;
 	public AnimatedSprite Sprite;
 	public WalrusFSM Brain;
 
 	private AnimationPlayer _anim;
 	private Position2D _weaponSlot;
 	private AudioStreamPlayer2D _attackSound;
+	private AudioStreamPlayer2D _hurtSound;
+	private Tween _tween;
 
 	public override void _Ready()
 	{
 		Sprite = GetNode<AnimatedSprite>("AnimatedSprite");
 		_anim = GetNode<AnimationPlayer>("AnimationPlayer");
 		_attackSound = GetNode<AudioStreamPlayer2D>("AttackSound");
+		_hurtSound = GetNode<AudioStreamPlayer2D>("HurtSound");
 		_weaponSlot = GetNode<Position2D>("WeaponSlot");
 		Brain = GetNode<WalrusFSM>("Brain");
+		_tween = GetNode<Tween>("Tween");
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -31,7 +36,13 @@ public class Walrus : KinematicBody2D, IDamageable
 	}
 	public void Damage()
 	{
-		throw new NotImplementedException();
+		_hurtSound.PitchScale = Globals.Random.Binomial(0.5f) + 1;
+		_hurtSound.Play();
+
+		_tween.InterpolateProperty(Sprite, "modulate",
+			HurtColor, Colors.White, 1,
+			Tween.TransitionType.Cubic, Tween.EaseType.Out);
+		_tween.Start();
 	}
 
 	public void Attack()

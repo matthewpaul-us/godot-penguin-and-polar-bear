@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Music/LonelinessLoop_v2.ogg" type="AudioStream" id=1]
+
+[node name="MusicManager" type="Node"]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+bus = "Music"

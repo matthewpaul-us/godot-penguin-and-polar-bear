@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://Misc/Globals.cs"
+MusicManager="*res://Misc/MusicManager.tscn"
 
 [display]
 
@@ -145,6 +146,11 @@ debug_god_mode={
 "events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+debug_advance_crates={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -156,6 +162,7 @@ debug_god_mode={
 2d_physics/layer_6="enemies_submerged"
 2d_physics/layer_7="environment"
 2d_physics/layer_8="pickups"
+2d_physics/layer_9="enemies_no_environment"
 
 [rendering]
 

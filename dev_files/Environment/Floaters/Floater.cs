@@ -9,9 +9,11 @@ public class Floater : KinematicBody2D
 	[Export] public float VelocityDampingFactor { get; set; }
 
 	private AnimationPlayer _anim;
+	private AudioStreamPlayer2D _touchSound;
 	public override void _Ready()
 	{
 		_anim = GetNode<AnimationPlayer>("AnimationPlayer");
+		_touchSound = GetNode<AudioStreamPlayer2D>("TouchSound");
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -20,6 +22,12 @@ public class Floater : KinematicBody2D
 
 		if (collision != null)
 		{
+			if (_touchSound.Stream != null && !_touchSound.Playing)
+			{
+				_touchSound.PitchScale = 1f + Globals.Random.Binomial(0.3f);
+				_touchSound.Play();
+			}
+
 			Velocity = collision.ColliderVelocity / Weight;
 			_anim.Play("wiggle");
 

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Environment/Floaters/Floater.cs" type="Script" id=1]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "wiggle"
 length = 8.0
 tracks/0/type = "value"
@@ -29,4 +29,7 @@ VelocityDampingFactor = 0.5
 [node name="Sprite" type="Sprite" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/wiggle = SubResource( 2 )
+anims/wiggle = SubResource( 1 )
+
+[node name="TouchSound" type="AudioStreamPlayer2D" parent="."]
+bus = "Sound Effects"

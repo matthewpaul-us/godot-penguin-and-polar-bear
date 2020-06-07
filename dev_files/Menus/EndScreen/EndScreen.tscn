@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Menus/EndScreen/PlayAgainNormal.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/Sunrise International Demo.otf" type="DynamicFontData" id=2]
@@ -6,16 +6,20 @@
 [ext_resource path="res://Assets/Fonts/ComicSansMSBold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Menus/EndScreen/PlayAgainHover.png" type="Texture" id=5]
 [ext_resource path="res://Menus/EndScreen/PostGameScreenSS.png" type="Texture" id=6]
+[ext_resource path="res://Menus/EndScreen/QuitNormal.png" type="Texture" id=7]
+[ext_resource path="res://Menus/EndScreen/QuitHover.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
-size = 160
+size = 140
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_char = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 28
+size = 60
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
 [node name="EndScreen" type="CanvasLayer"]
@@ -31,46 +35,65 @@ __meta__ = {
 }
 
 [node name="RestartButton" type="TextureButton" parent="."]
-margin_left = 34.2825
-margin_top = 24.3981
-margin_right = 743.283
-margin_bottom = 241.398
+anchor_left = 0.27
+anchor_top = 0.148
+anchor_right = 0.27
+anchor_bottom = 0.148
+margin_left = -354.517
+margin_top = -108.802
+margin_right = 354.483
+margin_bottom = 108.198
 texture_normal = ExtResource( 1 )
 texture_hover = ExtResource( 5 )
 
 [node name="SuperlativeLabel" type="Label" parent="."]
-margin_left = 753.667
-margin_top = 185.76
-margin_right = 1432.67
-margin_bottom = 352.76
+anchor_left = 0.761
+anchor_top = 0.299
+anchor_right = 0.761
+anchor_bottom = 0.299
+margin_left = -341.84
+margin_top = -83.1
+margin_right = 342.16
+margin_bottom = 83.9
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.541176, 0, 1 )
-text = "fantastic"
+text = "Exceptional"
 align = 1
 uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SurviveMinuteLabel" type="Label" parent="."]
-margin_left = 1136.48
-margin_top = 680.976
-margin_right = 1176.48
-margin_bottom = 720.976
+[node name="CratesCollectedLabel" type="Label" parent="."]
+anchor_left = 0.884
+anchor_top = 0.771
+anchor_right = 0.884
+anchor_bottom = 0.771
+margin_left = -131.21
+margin_top = -42.8119
+margin_right = 131.79
+margin_bottom = 42.1881
 custom_fonts/font = SubResource( 2 )
-text = "77"
+custom_colors/font_color = Color( 0.976471, 0.635294, 0.101961, 1 )
+text = "77 of 77"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SurviveSecondLabel" type="Label" parent="."]
-margin_left = 1198.76
-margin_top = 676.86
-margin_right = 1238.76
-margin_bottom = 716.86
-custom_fonts/font = SubResource( 2 )
-text = "77"
+[node name="QuitButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -116.0
+margin_top = -95.0
+margin_right = 20.0
+margin_bottom = 20.0
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="RestartButton" to="." method="OnRestartButtonPressed"]
+[connection signal="pressed" from="QuitButton" to="." method="OnQuitButtonPressed"]
