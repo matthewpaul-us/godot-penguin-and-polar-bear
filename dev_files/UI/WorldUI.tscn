@@ -251,16 +251,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer2" type="Control" parent="MarginContainer"]
 margin_left = 60.0
 margin_top = 60.0
 margin_right = 1380.0
 margin_bottom = 840.0
-custom_constants/separation = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer2"]
 margin_right = 148.0
 margin_bottom = 780.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CrateRect" type="TextureRect" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
 margin_right = 148.0
@@ -280,44 +282,61 @@ text = "77 of 77"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer2"]
-margin_left = 188.0
-margin_right = 593.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -405.0
 margin_bottom = 780.0
-custom_constants/separation = 20
+size_flags_vertical = 0
+custom_constants/separation = 10
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Health" type="TextureRect" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
-margin_right = 65.0
-margin_bottom = 63.0
+margin_left = 110.0
+margin_right = 161.2
+margin_bottom = 49.6
+rect_min_size = Vector2( 51.2, 49.6 )
 size_flags_vertical = 0
 texture = ExtResource( 4 )
+expand = true
 
 [node name="Health2" type="TextureRect" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 85.0
-margin_right = 150.0
-margin_bottom = 63.0
+margin_left = 171.0
+margin_right = 222.2
+margin_bottom = 49.6
+rect_min_size = Vector2( 51.2, 49.6 )
 size_flags_vertical = 0
 texture = ExtResource( 4 )
+expand = true
 
 [node name="Health3" type="TextureRect" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 170.0
-margin_right = 235.0
-margin_bottom = 63.0
+margin_left = 232.0
+margin_right = 283.2
+margin_bottom = 49.6
+rect_min_size = Vector2( 51.2, 49.6 )
 size_flags_vertical = 0
 texture = ExtResource( 4 )
+expand = true
 
 [node name="Health4" type="TextureRect" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 255.0
-margin_right = 320.0
-margin_bottom = 63.0
+margin_left = 293.0
+margin_right = 344.2
+margin_bottom = 49.6
+rect_min_size = Vector2( 51.2, 49.6 )
 size_flags_vertical = 0
 texture = ExtResource( 4 )
+expand = true
 
 [node name="Health5" type="TextureRect" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 340.0
-margin_right = 405.0
-margin_bottom = 63.0
+margin_left = 354.0
+margin_right = 405.2
+margin_bottom = 49.6
+rect_min_size = Vector2( 51.2, 49.6 )
 size_flags_vertical = 0
 texture = ExtResource( 4 )
+expand = true
 
 [node name="JackAvatar" type="TextureRect" parent="."]
 anchor_left = 1.0

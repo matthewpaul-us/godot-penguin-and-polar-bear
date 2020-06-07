@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Penguin and Polar Bear"
+config/name="Pablo and Jack"
 run/main_scene="res://Misc/LevelLoader.tscn"
 boot_splash/image="res://Assets/Art/SplashScreen.png"
 config/icon="res://icon.png"
@@ -170,4 +170,5 @@ debug_advance_crates={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.419608, 0.792157, 0.886275, 1 )
 environment/default_environment="res://default_env.tres"

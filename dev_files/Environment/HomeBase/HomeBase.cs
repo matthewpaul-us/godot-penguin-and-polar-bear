@@ -7,6 +7,9 @@ public class HomeBase : Area2D
 
 	public override void _Ready()
 	{
+		var anim = GetNode<AnimationPlayer>("AnimationPlayer");
+
+		anim.Play("float");
 
 	}
 

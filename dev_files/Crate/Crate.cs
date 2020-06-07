@@ -9,7 +9,7 @@ public class Crate : Area2D
 
 	public override void _Ready()
 	{
-
+		GetNode<AnimationPlayer>("AnimationPlayer").Play("float");
 	}
 
 	private void OnCrateBodyEntered(object body)

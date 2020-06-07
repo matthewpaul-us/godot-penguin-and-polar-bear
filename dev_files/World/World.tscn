@@ -84,6 +84,7 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 28.2804, -253.99 )
+rotation = 3.12908
 z_index = 5
 IsControllerSwitchingActive = true
 HurtColor = Color( 0.839216, 0.156863, 0.156863, 1 )
@@ -134,9 +135,11 @@ rotation = 5.21259
 
 [node name="LifeRing" parent="Flotsam" instance=ExtResource( 21 )]
 position = Vector2( 899.443, 627.447 )
+Weight = 0.0
 
 [node name="LifeRing2" parent="Flotsam" instance=ExtResource( 21 )]
 position = Vector2( -1412.53, -24.7269 )
+Weight = 0.0
 
 [node name="IceChunk01" parent="Flotsam" instance=ExtResource( 23 )]
 position = Vector2( 1491.35, 478.142 )
@@ -268,6 +271,7 @@ position = Vector2( 1620.34, 1062.77 )
 
 [node name="RubberDucky" parent="Flotsam" instance=ExtResource( 37 )]
 position = Vector2( -724.698, 804.922 )
+Weight = 0.0
 
 [node name="WorldUI" parent="." instance=ExtResource( 9 )]
 
@@ -288,8 +292,6 @@ scale = Vector2( 0.43, 0.43 )
 [node name="CrateFloating4" parent="Crates" instance=ExtResource( 20 )]
 position = Vector2( -1852.45, 419.156 )
 scale = Vector2( 0.43, 0.43 )
-
-[node name="HomeBase" parent="." instance=ExtResource( 11 )]
 
 [node name="Walls" type="Node" parent="."]
 
@@ -355,3 +357,5 @@ position = Vector2( 2140.35, 1124.35 )
 
 [node name="RubberDuckyInvert" parent="." instance=ExtResource( 38 )]
 position = Vector2( 982.635, -23.4625 )
+
+[node name="HomeBase" parent="." instance=ExtResource( 11 )]

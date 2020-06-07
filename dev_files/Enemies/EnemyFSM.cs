@@ -14,7 +14,7 @@ public class EnemyFSM : AbstractStateMachine<Enemy>
 		{
 			case "wander":
 				// Don't reset the timer if they do collision avoidance
-				if (!oldState.StartsWith("avoid"))
+				if (oldState == null || !oldState.StartsWith("avoid"))
 				{
 					_timeToWander = (float)_rand.NextDouble() * _parent.AverageWaitTime + _parent.AverageWaitTime / 2;
 				}
