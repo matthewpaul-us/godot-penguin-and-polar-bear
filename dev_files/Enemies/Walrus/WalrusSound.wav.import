@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WalrusSound.wav-f43bca7eaed116e78b10da83a78fce2e.sample"
+
+[deps]
+
+source_file="res://Enemies/Walrus/WalrusSound.wav"
+dest_files=[ "res://.import/WalrusSound.wav-f43bca7eaed116e78b10da83a78fce2e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

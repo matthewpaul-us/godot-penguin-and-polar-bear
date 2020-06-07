@@ -4,11 +4,13 @@ using System;
 public class WalrusFSM : AbstractStateMachine<Walrus>
 {
 	[Export] public float ReloadTime;
+	[Export] public float StunTime;
 	[Export] public float AttackDistance;
 
 	public Node2D Target;
 
 	private float _timeToReload;
+	private float _timeUntilStunWearsOff;
 	private DebugGUI _debug;
 
 	protected override void EnterState(string newState, string oldState)
@@ -23,6 +25,11 @@ public class WalrusFSM : AbstractStateMachine<Walrus>
 				_timeToReload = ReloadTime;
 				break;
 
+			case "stunned":
+				_timeUntilStunWearsOff = StunTime;
+				_parent.Anim.Play("stunned");
+				break;
+
 			default:
 				break;
 		}
@@ -30,6 +37,10 @@ public class WalrusFSM : AbstractStateMachine<Walrus>
 
 	protected override void ExitState(string oldState, string newState)
 	{
+		if (oldState == "stunned")
+		{
+			_parent.Anim.Play("wait");
+		}
 	}
 
 	protected override void Initialize()
@@ -38,6 +49,7 @@ public class WalrusFSM : AbstractStateMachine<Walrus>
 		AddState("wait");
 		AddState("attack");
 		AddState("reload");
+		AddState("stunned");
 
 		InitialState = "wait";
 
@@ -56,6 +68,11 @@ public class WalrusFSM : AbstractStateMachine<Walrus>
 			case "reload":
 				_timeToReload -= delta;
 				break;
+
+			case "stunned":
+				_timeUntilStunWearsOff -= delta;
+				break;
+
 			default:
 				break;
 		}
@@ -66,7 +83,7 @@ public class WalrusFSM : AbstractStateMachine<Walrus>
 		switch (_state)
 		{
 			case "wait":
-				if ((_parent.GlobalPosition - Target.GlobalPosition).Length() <= AttackDistance)
+				if (IsInRange())
 				{
 					return "reload";
 				}
@@ -77,7 +94,7 @@ public class WalrusFSM : AbstractStateMachine<Walrus>
 
 
 			case "reload":
-				if ((_parent.GlobalPosition - Target.GlobalPosition).Length() > AttackDistance)
+				if (!IsInRange())
 				{
 					return "wait";
 				}
@@ -88,10 +105,29 @@ public class WalrusFSM : AbstractStateMachine<Walrus>
 				}
 				break;
 
+			case "stunned":
+				if (_timeUntilStunWearsOff <= 0)
+				{
+					if (IsInRange())
+					{
+						return "reload";
+					}
+					else
+					{
+						return "wait";
+					}
+				}
+				break;
+
 			default:
 				break;
 		}
 
 		return _state;
+	}
+
+	private bool IsInRange()
+	{
+		return (_parent.GlobalPosition - Target.GlobalPosition).Length() <= AttackDistance;
 	}
 }

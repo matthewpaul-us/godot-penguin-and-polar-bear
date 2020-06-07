@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WalrusHit3.wav-8995a2640bc4b59792636c86916533ff.sample"
+
+[deps]
+
+source_file="res://Enemies/Walrus/WalrusHit3.wav"
+dest_files=[ "res://.import/WalrusHit3.wav-8995a2640bc4b59792636c86916533ff.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

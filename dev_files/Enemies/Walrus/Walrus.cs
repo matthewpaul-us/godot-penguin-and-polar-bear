@@ -10,7 +10,7 @@ public class Walrus : KinematicBody2D, IDamageable
 	public AnimatedSprite Sprite;
 	public WalrusFSM Brain;
 
-	private AnimationPlayer _anim;
+	public AnimationPlayer Anim;
 	private Position2D _weaponSlot;
 	private AudioStreamPlayer2D _attackSound;
 	private AudioStreamPlayer2D _hurtSound;
@@ -19,7 +19,7 @@ public class Walrus : KinematicBody2D, IDamageable
 	public override void _Ready()
 	{
 		Sprite = GetNode<AnimatedSprite>("AnimatedSprite");
-		_anim = GetNode<AnimationPlayer>("AnimationPlayer");
+		Anim = GetNode<AnimationPlayer>("AnimationPlayer");
 		_attackSound = GetNode<AudioStreamPlayer2D>("AttackSound");
 		_hurtSound = GetNode<AudioStreamPlayer2D>("HurtSound");
 		_weaponSlot = GetNode<Position2D>("WeaponSlot");
@@ -43,11 +43,13 @@ public class Walrus : KinematicBody2D, IDamageable
 			HurtColor, Colors.White, 1,
 			Tween.TransitionType.Cubic, Tween.EaseType.Out);
 		_tween.Start();
+
+		Brain.SetState("stunned");
 	}
 
 	public void Attack()
 	{
-		_anim.Play("attack");
+		Anim.Play("attack");
 	}
 
 	public void Throw()
@@ -60,7 +62,6 @@ public class Walrus : KinematicBody2D, IDamageable
 
 		GetTree().Root.AddChild(weapon);
 
-		_attackSound.PitchScale = Globals.Random.Binomial() * 0.3f + 1;
 		_attackSound.Play();
 	}
 }
