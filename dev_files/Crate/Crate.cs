@@ -14,6 +14,7 @@ public class Crate : Area2D, IDamageable
 
 	public override void _Ready()
 	{
+
 		if (IsFloating)
 		{
 			GetNode<AnimationPlayer>("AnimationPlayer").Play("float");
@@ -22,7 +23,7 @@ public class Crate : Area2D, IDamageable
 
 	private void OnCrateBodyEntered(object body)
 	{
-		if(body is Player p)
+		if(body is Player p && !p.IsCarryingCrate)
 		{
 			Collect();
 		}
@@ -30,6 +31,7 @@ public class Crate : Area2D, IDamageable
 
 	public void Collect()
 	{
+
 		Hide();
 		EmitSignal(nameof(Collected), this);
 		CallDeferred("queue_free");

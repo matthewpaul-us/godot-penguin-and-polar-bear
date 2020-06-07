@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Environment/Walls/Shipwreck.png" type="Texture" id=1]
+[ext_resource path="res://Environment/Walls/Wall.tscn" type="PackedScene" id=2]
+
+[node name="Shipwreck" instance=ExtResource( 2 )]
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PoolVector2Array( -62.9368, 120.355, -71.0221, 71.5705, -31.1114, 46.3208, -19.7083, 39.8048, 14.5009, -27.7991, 100.024, -39.2022, 114.685, -13.9526, 162.741, -40.0167, 162.741, -25.3556, 122.83, 16.9986, 141.831, 42.5197 )
+
+[node name="Sprite" parent="." index="1"]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 1 )

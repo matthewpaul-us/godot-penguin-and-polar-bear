@@ -7,7 +7,7 @@
 [node name="Sprite" parent="." index="1"]
 scale = Vector2( 0.538558, 0.368809 )
 animation = "swim_underwater"
-frame = 27
+frame = 6
 playing = true
 
 [node name="FrontLeftWhisker" parent="Whiskers" index="0"]

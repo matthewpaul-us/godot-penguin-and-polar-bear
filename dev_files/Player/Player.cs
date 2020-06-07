@@ -36,6 +36,7 @@ public class Player : KinematicBody2D, IDamageable
 	private Tween _tween;
 
 
+	private AudioStreamPlayer2D _pickupSound;
 	private AudioStreamPlayer2D _hurtSound;
 	private AudioStreamPlayer2D _penguinAttackSound;
 	private AugmentedRandom _rand;
@@ -43,6 +44,7 @@ public class Player : KinematicBody2D, IDamageable
 
 	public override void _Ready()
 	{
+		_pickupSound = GetNode<AudioStreamPlayer2D>("PickupSound");
 		_bearSprite = GetNode<AnimatedSprite>("BearSprite");
 		_penguinSprite = GetNode<AnimatedSprite>("PenguinSprite");
 		_weaponSlot = GetNode<Position2D>("PenguinSprite/WeaponSlot");
@@ -110,6 +112,7 @@ public class Player : KinematicBody2D, IDamageable
 	{
 		_crateSprite.Texture = crate.CarryTexture;
 		IsCarryingCrate = true;
+		_pickupSound.Play();
 		EmitSignal(nameof(CratePickedUp));
 	}
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://World/LevelLayout.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -41,6 +41,10 @@
 [ext_resource path="res://Enemies/Walrus/Walrus.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Enemies/Shark/Hammerhead.tscn" type="PackedScene" id=40]
 [ext_resource path="res://Crate/Crate.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Environment/Floaters/Flotsam/Sign.tscn" type="PackedScene" id=42]
+[ext_resource path="res://Environment/Walls/Shipwreck.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Assets/Sound/DOOR_Entrance_Wood_Close_stereo.wav" type="AudioStream" id=44]
+[ext_resource path="res://Assets/Sound/GameWin.wav" type="AudioStream" id=45]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.476821, 1 )
@@ -70,6 +74,7 @@ __meta__ = {
 }
 
 [node name="Reference" type="TextureRect" parent="Background"]
+visible = false
 modulate = Color( 1, 1, 1, 0.454902 )
 margin_left = -3.32422
 margin_right = 4316.68
@@ -282,6 +287,10 @@ scale = Vector2( 0.43, 0.43 )
 position = Vector2( -724.698, 804.922 )
 Weight = 0.0
 
+[node name="Sign" parent="Flotsam" instance=ExtResource( 42 )]
+position = Vector2( -901.659, -44.0768 )
+scale = Vector2( 0.3, 0.3 )
+
 [node name="WorldUI" parent="." instance=ExtResource( 9 )]
 
 [node name="Crates" type="Node" parent="."]
@@ -364,6 +373,9 @@ position = Vector2( 2069.15, 950.691 )
 [node name="Island05" parent="Walls" instance=ExtResource( 35 )]
 position = Vector2( 2140.35, 1124.35 )
 
+[node name="Shipwreck" parent="Walls" instance=ExtResource( 43 )]
+position = Vector2( -715.78, -745.787 )
+
 [node name="RubberDuckyInvert" parent="." instance=ExtResource( 38 )]
 position = Vector2( 982.635, -23.4625 )
 
@@ -372,3 +384,11 @@ position = Vector2( 982.635, -23.4625 )
 [node name="CrateFloating" parent="." instance=ExtResource( 20 )]
 position = Vector2( 27.7254, -579.808 )
 scale = Vector2( 0.43, 0.43 )
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 45 )
+bus = "Stingers"
+
+[node name="CrateDropoffSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 44 )
+bus = "Stingers"
