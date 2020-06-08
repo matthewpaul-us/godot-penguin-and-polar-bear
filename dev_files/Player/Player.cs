@@ -128,39 +128,39 @@ public class Player : KinematicBody2D, IDamageable
 
 	private void HandleDebug()
 	{
-		if (Input.IsActionJustPressed("debug_swap_controllers"))
-		{
-			SwapControllers();
-		}
+		//if (Input.IsActionJustPressed("debug_swap_controllers"))
+		//{
+		//	SwapControllers();
+		//}
 
-		if (Input.IsActionJustPressed("debug_go_fast"))
-		{
-			_isDebugFast = !_isDebugFast;
-			if (_isDebugFast)
-			{
-				MaxMoveSpeed *= 3;
-				MaxAcceleration *= 3;
-				CratedMaxMoveSpeed *= 3;
-				CratedMaxAcceleration *= 3;
-			}
-			else
-			{
-				MaxMoveSpeed /= 3;
-				MaxAcceleration /= 3;
-				CratedMaxMoveSpeed /= 3;
-				CratedMaxAcceleration /= 3;
-			}
-		}
+		//if (Input.IsActionJustPressed("debug_go_fast"))
+		//{
+		//	_isDebugFast = !_isDebugFast;
+		//	if (_isDebugFast)
+		//	{
+		//		MaxMoveSpeed *= 3;
+		//		MaxAcceleration *= 3;
+		//		CratedMaxMoveSpeed *= 3;
+		//		CratedMaxAcceleration *= 3;
+		//	}
+		//	else
+		//	{
+		//		MaxMoveSpeed /= 3;
+		//		MaxAcceleration /= 3;
+		//		CratedMaxMoveSpeed /= 3;
+		//		CratedMaxAcceleration /= 3;
+		//	}
+		//}
 
-		if (Input.IsActionJustPressed("debug_god_mode"))
-		{
-			_isDebugGodMode = !_isDebugGodMode;
-		}
+		//if (Input.IsActionJustPressed("debug_god_mode"))
+		//{
+		//	_isDebugGodMode = !_isDebugGodMode;
+		//}
 
-		if (Input.IsActionJustPressed("ui_select"))
-		{
-			ShowHurt();
-		}
+		//if (Input.IsActionJustPressed("ui_select"))
+		//{
+		//	ShowHurt();
+		//}
 	}
 
 	private void ApplyVelocity(float delta)

@@ -33,7 +33,7 @@ public class EndScreen : CanvasLayer
 
 	public string GetSuperlative()
 	{
-		//TODO - Credit this. from Quora: https://qr.ae/pNK8Yx
+		//Credit this. from Quora: https://qr.ae/pNK8Yx
 		var firstQuarterWords = new string[]
 		{
 			"Fair",

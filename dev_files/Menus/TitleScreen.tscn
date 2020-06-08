@@ -14,6 +14,6 @@ __meta__ = {
 NextLevel = "res://Menus/MainMenu/MainMenu.tscn"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 autostart = true
 [connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]

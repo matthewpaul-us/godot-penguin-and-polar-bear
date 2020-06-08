@@ -77,7 +77,7 @@ public class LevelLoader : Node2D
 		}
 		else
 		{
-			_curtainOriginalColor = _curtain.Color;
+			_curtainOriginalColor = new Color(1,1,1,0);
 
 			fromColor = _curtainOriginalColor;
 			toColor = LoweredCurtainColor;

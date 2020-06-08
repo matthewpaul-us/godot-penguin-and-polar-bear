@@ -10,35 +10,35 @@
 [ext_resource path="res://Enemies/Shark/SurfacedSwim/Armature_SwimSurfaced_12.png" type="Texture" id=8]
 [ext_resource path="res://Enemies/Shark/SurfacedSwim/Armature_SwimSurfaced_14.png" type="Texture" id=9]
 [ext_resource path="res://Enemies/Shark/SurfacedSwim/Armature_SwimSurfaced_15.png" type="Texture" id=10]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_01.png" type="Texture" id=11]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_02.png" type="Texture" id=12]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_03.png" type="Texture" id=13]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_04.png" type="Texture" id=14]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_05.png" type="Texture" id=15]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_06.png" type="Texture" id=16]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_00.png" type="Texture" id=17]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_16.png" type="Texture" id=18]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_11.png" type="Texture" id=19]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_19.png" type="Texture" id=20]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_15.png" type="Texture" id=21]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_18.png" type="Texture" id=22]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_13.png" type="Texture" id=23]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_20.png" type="Texture" id=24]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_21.png" type="Texture" id=25]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_09.png" type="Texture" id=26]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_14.png" type="Texture" id=27]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_10.png" type="Texture" id=28]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_22.png" type="Texture" id=29]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_17.png" type="Texture" id=30]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_07.png" type="Texture" id=31]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_12.png" type="Texture" id=32]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_08.png" type="Texture" id=33]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_28.png" type="Texture" id=34]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_23.png" type="Texture" id=35]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_26.png" type="Texture" id=36]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_25.png" type="Texture" id=37]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_24.png" type="Texture" id=38]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_27.png" type="Texture" id=39]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_46.png" type="Texture" id=11]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_44.png" type="Texture" id=12]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_47.png" type="Texture" id=13]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_45.png" type="Texture" id=14]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_43.png" type="Texture" id=15]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_42.png" type="Texture" id=16]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_48.png" type="Texture" id=17]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_05.png" type="Texture" id=18]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_01.png" type="Texture" id=19]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_08.png" type="Texture" id=20]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_03.png" type="Texture" id=21]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_00.png" type="Texture" id=22]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_04.png" type="Texture" id=23]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_02.png" type="Texture" id=24]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_09.png" type="Texture" id=25]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_07.png" type="Texture" id=26]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_10.png" type="Texture" id=27]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_11.png" type="Texture" id=28]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_13.png" type="Texture" id=29]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_06.png" type="Texture" id=30]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_12.png" type="Texture" id=31]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_20.png" type="Texture" id=32]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_24.png" type="Texture" id=33]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_28.png" type="Texture" id=34]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_21.png" type="Texture" id=35]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_41.png" type="Texture" id=36]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_35.png" type="Texture" id=37]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_32.png" type="Texture" id=38]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_17.png" type="Texture" id=39]
 [ext_resource path="res://Enemies/Shark/SurfacedSwim/Armature_SwimSurfaced_18.png" type="Texture" id=40]
 [ext_resource path="res://Enemies/Shark/SurfacedSwim/Armature_SwimSurfaced_17.png" type="Texture" id=41]
 [ext_resource path="res://Enemies/Shark/SurfacedSwim/Armature_SwimSurfaced_19.png" type="Texture" id=42]
@@ -51,26 +51,26 @@
 [ext_resource path="res://Enemies/Shark/Rising/Rising0.png" type="Texture" id=49]
 [ext_resource path="res://Enemies/Shark/Rising/Rising1.png" type="Texture" id=50]
 [ext_resource path="res://Enemies/Shark/Rising/Rising2.png" type="Texture" id=51]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_46.png" type="Texture" id=52]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_47.png" type="Texture" id=53]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_31.png" type="Texture" id=54]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_42.png" type="Texture" id=55]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_40.png" type="Texture" id=56]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_30.png" type="Texture" id=57]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_32.png" type="Texture" id=58]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_38.png" type="Texture" id=59]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_41.png" type="Texture" id=60]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_33.png" type="Texture" id=61]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_35.png" type="Texture" id=62]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_43.png" type="Texture" id=63]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_44.png" type="Texture" id=64]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_29.png" type="Texture" id=65]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_39.png" type="Texture" id=66]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_34.png" type="Texture" id=67]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_36.png" type="Texture" id=68]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_37.png" type="Texture" id=69]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_45.png" type="Texture" id=70]
-[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_Swim_48.png" type="Texture" id=71]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_34.png" type="Texture" id=52]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_27.png" type="Texture" id=53]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_19.png" type="Texture" id=54]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_25.png" type="Texture" id=55]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_15.png" type="Texture" id=56]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_23.png" type="Texture" id=57]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_26.png" type="Texture" id=58]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_33.png" type="Texture" id=59]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_36.png" type="Texture" id=60]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_31.png" type="Texture" id=61]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_38.png" type="Texture" id=62]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_22.png" type="Texture" id=63]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_16.png" type="Texture" id=64]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_30.png" type="Texture" id=65]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_39.png" type="Texture" id=66]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_14.png" type="Texture" id=67]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_40.png" type="Texture" id=68]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_29.png" type="Texture" id=69]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_18.png" type="Texture" id=70]
+[ext_resource path="res://Enemies/Shark/ShadowSwim/NEW/Armature_SwimSurfaced_37.png" type="Texture" id=71]
 [ext_resource path="res://Enemies/Shark/SurfacedSwim/Armature_SwimSurfaced_01.png" type="Texture" id=72]
 [ext_resource path="res://Enemies/Shark/SurfacedSwim/Armature_SwimSurfaced_02.png" type="Texture" id=73]
 [ext_resource path="res://Enemies/Shark/SurfacedSwim/Armature_SwimSurfaced_00.png" type="Texture" id=74]
@@ -118,26 +118,26 @@ animations = [ {
 "name": "surface",
 "speed": 12.0
 }, {
+"frames": [ ExtResource( 74 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 79 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 43 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 92 ), ExtResource( 87 ), ExtResource( 91 ), ExtResource( 83 ), ExtResource( 106 ), ExtResource( 97 ), ExtResource( 93 ), ExtResource( 95 ), ExtResource( 104 ), ExtResource( 85 ), ExtResource( 94 ), ExtResource( 98 ), ExtResource( 84 ), ExtResource( 107 ), ExtResource( 96 ), ExtResource( 109 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 86 ), ExtResource( 110 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 90 ), ExtResource( 88 ), ExtResource( 103 ), ExtResource( 105 ), ExtResource( 82 ), ExtResource( 108 ), ExtResource( 89 ) ],
+"loop": true,
+"name": "swim",
+"speed": 24.0
+}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "submerge",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 19 ), ExtResource( 32 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 30 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 34 ), ExtResource( 65 ), ExtResource( 57 ), ExtResource( 54 ), ExtResource( 58 ), ExtResource( 61 ), ExtResource( 67 ), ExtResource( 62 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 59 ), ExtResource( 66 ), ExtResource( 56 ), ExtResource( 60 ), ExtResource( 55 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 70 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 71 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 19 ), ExtResource( 24 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 67 ), ExtResource( 56 ), ExtResource( 64 ), ExtResource( 39 ), ExtResource( 70 ), ExtResource( 54 ), ExtResource( 32 ), ExtResource( 35 ), ExtResource( 63 ), ExtResource( 57 ), ExtResource( 33 ), ExtResource( 55 ), ExtResource( 58 ), ExtResource( 53 ), ExtResource( 34 ), ExtResource( 69 ), ExtResource( 65 ), ExtResource( 61 ), ExtResource( 38 ), ExtResource( 59 ), ExtResource( 52 ), ExtResource( 37 ), ExtResource( 60 ), ExtResource( 71 ), ExtResource( 62 ), ExtResource( 66 ), ExtResource( 68 ), ExtResource( 36 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "swim_underwater",
 "speed": 24.0
-}, {
-"frames": [ ExtResource( 74 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 79 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 43 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 92 ), ExtResource( 87 ), ExtResource( 91 ), ExtResource( 83 ), ExtResource( 106 ), ExtResource( 97 ), ExtResource( 93 ), ExtResource( 95 ), ExtResource( 104 ), ExtResource( 85 ), ExtResource( 94 ), ExtResource( 98 ), ExtResource( 84 ), ExtResource( 107 ), ExtResource( 96 ), ExtResource( 109 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 86 ), ExtResource( 110 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 90 ), ExtResource( 88 ), ExtResource( 103 ), ExtResource( 105 ), ExtResource( 82 ), ExtResource( 108 ), ExtResource( 89 ) ],
-"loop": true,
-"name": "swim",
-"speed": 24.0
 } ]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 23.768
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:collision_mask")
@@ -204,8 +204,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.539, 0.369 )
 frames = SubResource( 1 )
-animation = "swim"
-frame = 8
+animation = "swim_underwater"
 
 [node name="AttackCollider" type="Area2D" parent="."]
 collision_layer = 16
@@ -213,10 +212,10 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCollider"]
 position = Vector2( 4.19113, -123.34 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/submerge = SubResource( 4 )
+anims/submerge = SubResource( 3 )
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )

@@ -29,13 +29,13 @@ public class Walrus : KinematicBody2D, IDamageable
 		_tween = GetNode<Tween>("Tween");
 	}
 
-	public override void _PhysicsProcess(float delta)
-	{
-		if (Input.IsActionJustPressed("debug_swap_avatars"))
-		{
-			Attack();
-		}
-	}
+	//public override void _PhysicsProcess(float delta)
+	//{
+	//	if (Input.IsActionJustPressed("debug_swap_avatars"))
+	//	{
+	//		Attack();
+	//	}
+	//}
 	public void Damage()
 	{
 		_hurtSound.PitchScale = Globals.Random.Binomial(0.5f) + 1;

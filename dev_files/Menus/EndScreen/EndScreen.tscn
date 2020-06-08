@@ -11,14 +11,12 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 140
-outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_char = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 60
-outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
@@ -74,7 +72,7 @@ margin_top = -42.8119
 margin_right = 131.79
 margin_bottom = 42.1881
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.976471, 0.635294, 0.101961, 1 )
+custom_colors/font_color = Color( 0.133333, 0.0901961, 0.0156863, 1 )
 text = "77 of 77"
 __meta__ = {
 "_edit_use_anchors_": false

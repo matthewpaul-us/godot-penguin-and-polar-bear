@@ -23,6 +23,8 @@ public class Globals : Node
 		var guiScene = GD.Load<PackedScene>("res://Debug/DebugGUI.tscn");
 		DebugGUI = guiScene.Instance() as DebugGUI;
 
+		DebugGUI.AddToGui(DebugPane.TopLeft, "IsGamePadActive", () => IsGamepad.ToString());
+
 		AddChild(DebugGUI);
 	}
 }

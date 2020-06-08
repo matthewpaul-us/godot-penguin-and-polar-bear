@@ -11,6 +11,7 @@ public class World : Node2D
 	private WorldUI _ui;
 	private AudioStreamPlayer _dropoffSound;
 	private AudioStreamPlayer _winSound;
+	private Floater _rubberDuck;
 
 	private int CrateCount = 0;
 	private int TotalCrateCount = 0;
@@ -21,6 +22,7 @@ public class World : Node2D
 		_player = GetNode<Player>("Player");
 		_homeBase = GetNode<HomeBase>("HomeBase");
 		_ui = GetNode<WorldUI>("WorldUI");
+		_rubberDuck = GetNode<Floater>("Flotsam/RubberDucky2");
 
 		_dropoffSound = GetNode<AudioStreamPlayer>("CrateDropoffSound");
 		_winSound = GetNode<AudioStreamPlayer>("WinSound");
@@ -63,6 +65,7 @@ public class World : Node2D
 
 		Globals.DebugGUI.AddToGui(DebugPane.TopLeft, "Collected", () => Globals.CrateCount.ToString());
 		Globals.DebugGUI.AddToGui(DebugPane.TopLeft, "Total", () => Globals.TotalCrateCount.ToString());
+		Globals.DebugGUI.AddToGui(DebugPane.TopLeft, "RubberDuck", () => _rubberDuck.GlobalPosition.ToString());
 	}
 
 	public void OnPlayerLoseHealth(int newHealth)
@@ -73,17 +76,17 @@ public class World : Node2D
 		}
 	}
 
-	public override void _PhysicsProcess(float delta)
-	{
-		if (Input.IsActionJustPressed("debug_win"))
-		{
-			Win();
-		}
-		if (Input.IsActionJustPressed("debug_lose"))
-		{
-			Globals.LevelLoader.LoadScene(PostGameScene);
-		}
-	}
+	//public override void _PhysicsProcess(float delta)
+	//{
+	//	if (Input.IsActionJustPressed("debug_win"))
+	//	{
+	//		Win();
+	//	}
+	//	if (Input.IsActionJustPressed("debug_lose"))
+	//	{
+	//		Globals.LevelLoader.LoadScene(PostGameScene);
+	//	}
+	//}
 
 	public void OnPlayerDroppedOffCrate()
 	{

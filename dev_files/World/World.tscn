@@ -117,30 +117,28 @@ color_ramp = SubResource( 1 )
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Hammerhead" parent="Enemies" instance=ExtResource( 40 )]
-position = Vector2( -1058.74, -834.851 )
-rotation = 2.49011
+position = Vector2( -1558.9, -802.975 )
+rotation = 1.89279
+
+[node name="Hammerhead2" parent="Enemies" instance=ExtResource( 40 )]
+position = Vector2( -1700.53, -382.502 )
+rotation = 2.75698
+
+[node name="Hammerhead4" parent="Enemies" instance=ExtResource( 40 )]
+position = Vector2( 1815.44, 750.682 )
+rotation = -1.04955
 
 [node name="Hammerhead3" parent="Enemies" instance=ExtResource( 40 )]
-position = Vector2( -1650.73, -808.287 )
-rotation = 2.17327
-
-[node name="Hammerhead6" parent="Enemies" instance=ExtResource( 40 )]
-position = Vector2( 1901.18, 626.138 )
-rotation = 5.52944
-
-[node name="Hammerhead5" parent="Enemies" instance=ExtResource( 40 )]
-position = Vector2( 1214.33, 1089.1 )
-rotation = 4.68084
+position = Vector2( 1391.85, 1022.62 )
+rotation = -0.185369
 
 [node name="Flotsam" type="Node2D" parent="."]
 
 [node name="LifeRing" parent="Flotsam" instance=ExtResource( 21 )]
 position = Vector2( 899.443, 627.447 )
-Weight = 0.0
 
 [node name="LifeRing2" parent="Flotsam" instance=ExtResource( 21 )]
 position = Vector2( -1412.53, -24.7269 )
-Weight = 0.0
 
 [node name="IceChunk01" parent="Flotsam" instance=ExtResource( 23 )]
 position = Vector2( 1491.35, 478.142 )
@@ -276,16 +274,18 @@ position = Vector2( -167.258, 1227.49 )
 position = Vector2( 97.6565, 1087.15 )
 
 [node name="IceChunk39" parent="Flotsam" instance=ExtResource( 28 )]
-position = Vector2( 1608.65, 1074.46 )
+position = Vector2( 1589.12, 881.984 )
 scale = Vector2( 0.664138, 0.600445 )
 
 [node name="Crate" parent="Flotsam/IceChunk39" instance=ExtResource( 41 )]
-position = Vector2( 3.49536, -57.9904 )
-scale = Vector2( 0.43, 0.43 )
+position = Vector2( 23.1431, -62.189 )
+scale = Vector2( 0.655064, 0.774471 )
 
 [node name="RubberDucky" parent="Flotsam" instance=ExtResource( 37 )]
-position = Vector2( -724.698, 804.922 )
-Weight = 0.0
+position = Vector2( -589.413, 677.04 )
+
+[node name="RubberDucky2" parent="Flotsam" instance=ExtResource( 37 )]
+position = Vector2( 69.9958, -494.415 )
 
 [node name="Sign" parent="Flotsam" instance=ExtResource( 42 )]
 position = Vector2( -901.659, -44.0768 )
@@ -296,7 +296,7 @@ scale = Vector2( 0.3, 0.3 )
 [node name="Crates" type="Node" parent="."]
 
 [node name="CrateFloating" parent="Crates" instance=ExtResource( 20 )]
-position = Vector2( 1472.79, 199.026 )
+position = Vector2( 1501.78, 134.494 )
 scale = Vector2( 0.43, 0.43 )
 
 [node name="CrateFloating2" parent="Crates" instance=ExtResource( 20 )]

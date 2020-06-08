@@ -78,7 +78,7 @@ public class Snowball : KinematicBody2D
 	private void OnLifespanTimerTimeout()
 	{
 		KillProjectile();
-		CallDeferred(nameof(QueueFree));
+		CallDeferred("queue_free");
 	}
 }
 

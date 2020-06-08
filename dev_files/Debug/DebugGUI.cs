@@ -23,6 +23,8 @@ public class DebugGUI : CanvasLayer
 
 		AddToGui(DebugPane.TopLeft, "FPS", () => Performance.GetMonitor(Performance.Monitor.TimeFps).ToString());
 		AddToGui(DebugPane.TopLeft, "Memory", () => FormatByteLength((long)Performance.GetMonitor(Performance.Monitor.MemoryStatic)));
+
+		_topLeftLabel.Hide();
 	}
 
 	public void AddToGui(DebugPane pane, string name, Func<string> getter)

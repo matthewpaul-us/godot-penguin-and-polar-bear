@@ -81,11 +81,11 @@ public class WorldUI : CanvasLayer
 		}
 	}
 
-	public override void _PhysicsProcess(float delta)
-	{
-		if (Input.IsActionJustPressed("debug_swap_avatars"))
-		{
-			OnPlayerDamaged();
-		}
-	}
+	//public override void _PhysicsProcess(float delta)
+	//{
+	//	if (Input.IsActionJustPressed("debug_swap_avatars"))
+	//	{
+	//		OnPlayerDamaged();
+	//	}
+	//}
 }
